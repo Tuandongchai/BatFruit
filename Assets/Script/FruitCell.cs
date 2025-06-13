@@ -59,7 +59,12 @@ public class FruitCell : MonoBehaviour
     public void ChangeFruit(GameObject fruit)
     {
         if (fruit == null)
+        {
+            this.fruitObject = null;
+            this.fruit = null;
+/*            this.fruitType = FruitType.none;*/
             return;
+        }
         Configure(fruit.GetComponent<Fruit>());
         fruit.GetComponent<Fruit>().ChangeParent(this.gameObject);
         fruitObject = fruit;

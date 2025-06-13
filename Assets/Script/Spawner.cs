@@ -1,16 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private int yMin;
-    [SerializeField] private int yMax;
-    [SerializeField] private int xMin;
-    [SerializeField] private int xMax;
     [SerializeField] private Board board;
 
+    [SerializeField]private List<Fruit> fruits = new List<Fruit>();
     private Dictionary<Vector2Int, FruitCell> cellMap = new Dictionary<Vector2Int, FruitCell>();
 
     private void Start()
@@ -28,13 +26,20 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    public void Falling()
+    public IEnumerator Falling()
     {
-        Init(); // ??m b?o map c?p nh?t
+        Init();
+        
+        int xMin = cellMap.Keys.Min(pos => pos.x);
+        int xMax = cellMap.Keys.Max(pos => pos.x);
+        int yMin = cellMap.Keys.Min(pos => pos.y);
+        int yMax = cellMap.Keys.Max(pos => pos.y);
 
-        for (int x = xMin; x < xMax; x++)
+        
+        for (int x = xMin; x < xMax+1; x++)
         {
-            for (int y = yMin + 1; y < yMax; y++)
+            int countFruitToSpawn = 0;
+            for (int y = yMin + 1; y < yMax+1; y++)
             {
                 Vector2Int currentPos = new Vector2Int(x, y);
                 if (!cellMap.ContainsKey(currentPos)) continue;
@@ -43,8 +48,7 @@ public class Spawner : MonoBehaviour
                 if (currentCell.GetFruit() == null) continue;
 
                 int fallY = y - 1;
-
-                // Tìm v? trí th?p nh?t có th? r?i xu?ng
+                yield return new WaitForSeconds(0.1f);
                 while (fallY >= yMin)
                 {
                     Vector2Int belowPos = new Vector2Int(x, fallY);
@@ -53,7 +57,7 @@ public class Spawner : MonoBehaviour
                         FruitCell belowCell = cellMap[belowPos];
                         if (belowCell.GetFruit() == null)
                         {
-                            // Di chuy?n trái cây xu?ng
+
                             belowCell.ChangeFruit(currentCell.GetFruit());
                             currentCell.ChangeFruit(null);
 
@@ -65,6 +69,60 @@ public class Spawner : MonoBehaviour
                     else break;
                 }
             }
+            for(int i = yMin; i<=yMax; i++)
+            {
+                Vector2Int pos = new Vector2Int(x, i);
+                if(cellMap.TryGetValue(pos, out FruitCell cell))
+                {
+                    if (cell.GetFruit() == null)
+                        countFruitToSpawn++;
+                }
+            }
+
+            Debug.Log("dem duoc: "+ countFruitToSpawn);
+            while (countFruitToSpawn > 0)
+            {
+
+                Vector2Int spawnPos = new Vector2Int(x, yMax + 1);
+                GameObject fruitSpawn = Instantiate(fruits[Random.Range(0, fruits.Count)].gameObject,
+                    Vector3.zero, Quaternion.identity);
+
+                FruitCell targetCell = null;
+
+                for (int y = yMax; y >= yMin; y--)
+                {
+                    Vector2Int pos = new Vector2Int(x, y);
+                    if (cellMap.TryGetValue(pos, out targetCell) && targetCell.GetFruit() == null)
+                    {
+
+                        fruitSpawn.transform.SetParent(targetCell.transform);
+                        targetCell.ChangeFruit(fruitSpawn);
+
+                        int fallY = y;
+                        FruitCell current = targetCell;
+
+                        while (fallY > yMin)
+                        {
+                            fallY--;
+                            Vector2Int belowPos = new Vector2Int(x, fallY);
+                            if (cellMap.TryGetValue(belowPos, out FruitCell belowCell) && belowCell.GetFruit() == null)
+                            {
+                                belowCell.ChangeFruit(current.GetFruit());
+                                current.ChangeFruit(null);
+                                current = belowCell;
+                            }
+                            else break;
+                        }
+
+                        break; 
+                    }
+                }
+
+                countFruitToSpawn--;
+            }
+
         }
     }
+
+
 }

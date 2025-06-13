@@ -4,55 +4,164 @@ using UnityEngine;
 
 public class MatchChecker : MonoBehaviour
 {
+    /* public static List<List<FruitCell>> FindMatches(List<FruitCell> cells)
+     {
+         Dictionary<Vector2Int, FruitCell> cellMap = new Dictionary<Vector2Int, FruitCell>();
+         HashSet<Vector2Int> visited = new HashSet<Vector2Int>();
+         List<List<FruitCell>> matches = new List<List<FruitCell>>();
+         foreach (var cell in cells)
+         {
+             Vector2Int pos = Vector2Int.RoundToInt(cell.GetXY());
+             cellMap[pos] = cell;
+         }
+
+
+         foreach (var kvp in cellMap)
+         {
+             Vector2Int pos = kvp.Key;
+
+             if (visited.Contains(pos)) continue;
+
+             FruitType type = kvp.Value.GetFruit().GetComponent<Fruit>().type;
+             List<FruitCell> group = new List<FruitCell>();
+
+             DFS(pos, type, cellMap, visited, group);
+
+             if (group.Count >= 3)
+                 matches.Add(group);
+         }
+
+         return matches;
+     }
+
+     private static void DFS(Vector2Int pos, FruitType type, Dictionary<Vector2Int, FruitCell> map, HashSet<Vector2Int> visited, List<FruitCell> group)
+     {
+         if (!map.ContainsKey(pos)) return;
+         if (visited.Contains(pos)) return;
+
+         var cell = map[pos];
+         var fruit = cell.GetFruit().GetComponent<Fruit>();
+         if (fruit.type != type) return;
+
+         visited.Add(pos);
+         group.Add(cell);
+
+
+         DFS(pos + Vector2Int.up, type, map, visited, group);
+         DFS(pos + Vector2Int.down, type, map, visited, group);
+         DFS(pos + Vector2Int.left, type, map, visited, group);
+         DFS(pos + Vector2Int.right, type, map, visited, group);
+     }*/
     public static List<List<FruitCell>> FindMatches(List<FruitCell> cells)
     {
         Dictionary<Vector2Int, FruitCell> cellMap = new Dictionary<Vector2Int, FruitCell>();
-        HashSet<Vector2Int> visited = new HashSet<Vector2Int>();
+        HashSet<FruitCell> matchedCells = new HashSet<FruitCell>();
         List<List<FruitCell>> matches = new List<List<FruitCell>>();
 
-        // B1: T?o b?n ?? t? t?a ?? -> cell
+        // T?o map t? cell
         foreach (var cell in cells)
         {
-            Vector2Int pos = Vector2Int.RoundToInt(cell.GetXY()); // gi? s? GetXY() tr? Vector2
+            Vector2Int pos = Vector2Int.RoundToInt(cell.GetXY());
             cellMap[pos] = cell;
         }
 
-        // B2: Duy?t t?t c? cell
+        // Quét theo hàng ngang
         foreach (var kvp in cellMap)
         {
             Vector2Int pos = kvp.Key;
+            FruitCell startCell = kvp.Value;
+            Fruit fruit = startCell.GetFruit()?.GetComponent<Fruit>();
+            if (fruit == null) continue;
 
-            if (visited.Contains(pos)) continue;
+            List<FruitCell> horizontalMatch = new List<FruitCell> { startCell };
 
-            FruitType type = kvp.Value.GetFruit().GetComponent<Fruit>().type;
-            List<FruitCell> group = new List<FruitCell>();
+            for (int i = 1; i < 6; i++) // t?i ?a 5 ô
+            {
+                Vector2Int nextPos = pos + new Vector2Int(i, 0);
+                if (!cellMap.TryGetValue(nextPos, out var nextCell)) break;
 
-            DFS(pos, type, cellMap, visited, group);
+                var nextFruit = nextCell.GetFruit()?.GetComponent<Fruit>();
+                if (nextFruit == null || nextFruit.type != fruit.type) break;
 
-            if (group.Count >= 3)
-                matches.Add(group);
+                horizontalMatch.Add(nextCell);
+            }
+
+            if (horizontalMatch.Count >= 3)
+            {
+                foreach (var c in horizontalMatch)
+                    matchedCells.Add(c);
+                matches.Add(horizontalMatch);
+            }
         }
 
-        return matches;
+        // Quét theo hàng d?c
+        foreach (var kvp in cellMap)
+        {
+            Vector2Int pos = kvp.Key;
+            FruitCell startCell = kvp.Value;
+            Fruit fruit = startCell.GetFruit()?.GetComponent<Fruit>();
+            if (fruit == null) continue;
+
+            List<FruitCell> verticalMatch = new List<FruitCell> { startCell };
+
+            for (int i = 1; i < 6; i++) // t?i ?a 5 ô
+            {
+                Vector2Int nextPos = pos + new Vector2Int(0, i);
+                if (!cellMap.TryGetValue(nextPos, out var nextCell)) break;
+
+                var nextFruit = nextCell.GetFruit()?.GetComponent<Fruit>();
+                if (nextFruit == null || nextFruit.type != fruit.type) break;
+
+                verticalMatch.Add(nextCell);
+            }
+
+            if (verticalMatch.Count >= 3)
+            {
+                foreach (var c in verticalMatch)
+                    matchedCells.Add(c);
+                matches.Add(verticalMatch);
+            }
+        }
+
+        // Gom t?t c? cell trùng vào danh sách nhóm
+        // (tránh trùng l?p, ví d? ch? T có th? match c? ngang và d?c)
+        List<List<FruitCell>> finalGroups = MergeOverlappingMatches(matches);
+
+        return finalGroups;
     }
 
-    private static void DFS(Vector2Int pos, FruitType type, Dictionary<Vector2Int, FruitCell> map, HashSet<Vector2Int> visited, List<FruitCell> group)
+    private static List<List<FruitCell>> MergeOverlappingMatches(List<List<FruitCell>> rawGroups)
     {
-        if (!map.ContainsKey(pos)) return;
-        if (visited.Contains(pos)) return;
+        List<List<FruitCell>> merged = new List<List<FruitCell>>();
+        HashSet<FruitCell> visited = new HashSet<FruitCell>();
 
-        var cell = map[pos];
-        var fruit = cell.GetFruit().GetComponent<Fruit>();
-        if (fruit.type != type) return;
+        foreach (var group in rawGroups)
+        {
+            if (group.Exists(cell => visited.Contains(cell)))
+            {
+                // Merge vào nhóm c?
+                foreach (var existingGroup in merged)
+                {
+                    if (group.Exists(cell => existingGroup.Contains(cell)))
+                    {
+                        foreach (var cell in group)
+                        {
+                            if (!existingGroup.Contains(cell))
+                                existingGroup.Add(cell);
+                            visited.Add(cell);
+                        }
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                merged.Add(new List<FruitCell>(group));
+                foreach (var cell in group)
+                    visited.Add(cell);
+            }
+        }
 
-        visited.Add(pos);
-        group.Add(cell);
-
-        // 4 h??ng
-        DFS(pos + Vector2Int.up, type, map, visited, group);
-        DFS(pos + Vector2Int.down, type, map, visited, group);
-        DFS(pos + Vector2Int.left, type, map, visited, group);
-        DFS(pos + Vector2Int.right, type, map, visited, group);
+        return merged;
     }
-
 }

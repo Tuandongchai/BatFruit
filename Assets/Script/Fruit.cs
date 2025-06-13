@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public enum FruitType { Apple, Banana, Blueberry, grapes, orange, Pear, Strawberry};
+public enum FruitType { Apple, Banana, Blueberry, grapes, orange, Pear, Strawberry, none};
 public class Fruit : MonoBehaviour
 {
     [SerializeField] public FruitType type;

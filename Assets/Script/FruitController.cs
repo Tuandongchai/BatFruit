@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.WSA;
 
@@ -17,8 +18,14 @@ public class FruitController : MonoBehaviour
     private FruitCell secondSelectedCell;
     private Vector3 mouseDownWorldPos;
 
+    private bool isMatching = false;
+    private void Start()
+    {
+        /*HandleMatches();*/
+    }
     private void Update()
     {
+        if (isMatching) return;
         ManagerController();
     }
 
@@ -110,14 +117,14 @@ public class FruitController : MonoBehaviour
         b.ChangeFruit(tempA);
 
         Debug.Log($"Swapped: {a.GetXY()} <-> {b.GetXY()}");
+
         HandleMatches();
-        StartCoroutine(WaitToFall());
+
     }
-    IEnumerator WaitToFall()
+    IEnumerator WaitToFallAndSpawn()
     {
         yield return new WaitForSeconds(1f);
-        spawner.Falling();
-
+        StartCoroutine(spawner.Falling());
     }
     private void OnDrawGizmos()
     {
@@ -128,22 +135,36 @@ public class FruitController : MonoBehaviour
         worldPos.z = 0;
 
         Gizmos.color = Color.red;
-        Gizmos.DrawSphere(worldPos, 0.1f); // V? ?i?m tròn ??
+        Gizmos.DrawSphere(worldPos, 0.1f); 
     }
-    private void HandleMatches()
+    public void HandleMatches()
     {
-        List<List<FruitCell>> matchGroups = MatchChecker.FindMatches(fruitBoard.fruitCells);
-        Debug.Log("Dang chay");
-        foreach (var group in matchGroups)
-        {
-            foreach (var cell in group)
-            {
-                Debug.Log("okkkkkk");
-                Destroy(cell.GetFruit());
-                //cell.ChangeFruit(null);
-            }
-        }
-        
+        StartCoroutine(HandleMatchesCoroutine());
     }
 
+    private IEnumerator HandleMatchesCoroutine()
+    {
+        while (true)
+        {
+            isMatching = false;
+
+            List<List<FruitCell>> matchGroups = MatchChecker.FindMatches(fruitBoard.fruitCells);
+            if (matchGroups.Count == 0) break;
+
+            isMatching = true;
+            foreach (var group in matchGroups)
+            {
+                foreach (var cell in group)
+                {
+                    Destroy(cell.GetFruit());
+                    cell.ChangeFruit(null);
+                }
+            }
+
+            yield return new WaitForSeconds(0.2f); 
+            yield return StartCoroutine(WaitToFallAndSpawn());
+            Debug.Log("Da roi xong check de de quy");
+            yield return new WaitForSeconds(5f); 
+        }
+    }
 }
