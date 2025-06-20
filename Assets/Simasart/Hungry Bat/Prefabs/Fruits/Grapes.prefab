@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: type
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: -815927542491646569, guid: 6681822d38bb9f74ca0f397bbf767f5a, type: 3}
+      propertyPath: particleDestroy
+      value: 
+      objectReference: {fileID: 6457946669738056370, guid: fb9f69205cc2f814b8b3e0837eee815f, type: 3}
     - target: {fileID: 1393836645415585421, guid: 6681822d38bb9f74ca0f397bbf767f5a, type: 3}
       propertyPath: m_Name
       value: Grapes

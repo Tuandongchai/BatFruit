@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public enum FruitType { Apple, Banana, Blueberry, grapes, orange, Pear, Strawberry, none};
-public class Fruit : MonoBehaviour
+public enum FruitType { Apple, Banana, Blueberry, grapes, orange, Pear, Strawberry, Missile_Hor, Missile_Ver, Bomb, Rubik, none};
+public class Fruit : MonoBehaviour, IDestroy
 {
-    [SerializeField] public FruitType type;
+    public FruitType type;
     [SerializeField] private GameObject parent;
+    [SerializeField] private GameObject particleDestroy;
 
+    private void Start()
+    {
+        SetParent(transform.parent);
+    }
     public void SetParent(Transform parent)
     {
         this.parent = parent.gameObject;
@@ -15,5 +20,24 @@ public class Fruit : MonoBehaviour
     {
         gameObject.transform.SetParent(parent.transform);
         gameObject.transform.localPosition = Vector3.zero;
+    }
+
+    
+    public void DestroyThis()
+    {
+        if (gameObject == null)
+            return;
+        if (particleDestroy && parent != null)
+        {
+            GameObject go = Instantiate(particleDestroy, transform.position, Quaternion.identity);
+            /*go.transform.localPosition = Vector3.zero;*/
+            go.transform.SetParent(null);
+        }
+
+        Destroy(gameObject,0.02f);
+    }
+    public FruitType GetFruitType()
+    {
+        return this.type;
     }
 }

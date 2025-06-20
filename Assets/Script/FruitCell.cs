@@ -33,7 +33,15 @@ public class FruitCell : MonoBehaviour
             fruitIns.transform.SetParent(transform);
             fruitIns.transform.localPosition = Vector3.zero;
             Configure(fruitIns.GetComponent<Fruit>());
-            fruitObject = gameObject.transform.GetChild(0).gameObject;
+            foreach (Transform go in gameObject.transform)
+            {
+                if(go.TryGetComponent(out Fruit fruit))
+                {
+                    fruitObject = go.gameObject; break;
+                }
+                
+            }
+            /*fruitObject = gameObject.transform.GetChild(0).gameObject;*/
             fruitObject.GetComponent<Fruit>().SetParent(gameObject.transform);
         }
         else
@@ -45,7 +53,15 @@ public class FruitCell : MonoBehaviour
                 fruitIns.transform.SetParent(transform);
                 fruitIns.transform.localPosition = Vector3.zero;
                 Configure(fruitIns.GetComponent<Fruit>());
-                fruitObject = gameObject.transform.GetChild(0).gameObject;
+                foreach (Transform go in gameObject.transform)
+                {
+                    if (go.TryGetComponent(out Fruit fruit))
+                    {
+                        fruitObject = go.gameObject; break;
+                    }
+
+                }
+                //fruitObject = gameObject.transform.GetChild(0).gameObject;
                 fruitObject.GetComponent<Fruit>().SetParent(gameObject.transform);
             }
         }
@@ -55,6 +71,11 @@ public class FruitCell : MonoBehaviour
     public GameObject GetFruit()
     {
         return fruitObject;
+    }
+    public FruitType GetFruitType()
+    {
+        
+        return GetFruit().GetComponent<Fruit>().GetFruitType();
     }
     public void ChangeFruit(GameObject fruit)
     {

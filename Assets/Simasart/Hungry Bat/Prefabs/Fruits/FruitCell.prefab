@@ -55,6 +55,7 @@ MonoBehaviour:
   x: 0
   y: 0
   fruit: {fileID: 0}
+  fruitObject: {fileID: 0}
 --- !u!61 &923819415564879417
 BoxCollider2D:
   m_ObjectHideFlags: 0

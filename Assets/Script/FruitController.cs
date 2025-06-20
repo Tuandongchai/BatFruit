@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -19,6 +20,7 @@ public class FruitController : MonoBehaviour
     private Vector3 mouseDownWorldPos;
 
     private bool isMatching = false;
+
     private void Start()
     {
         /*HandleMatches();*/
@@ -72,7 +74,7 @@ public class FruitController : MonoBehaviour
         Debug.Log("tod do up"+secondPos);
         FruitCell secondSelectedCell = FindCellAt(secondPos);
         if (secondSelectedCell != null)
-            TrySwap(firstSelectedCell, secondSelectedCell);
+            StartCoroutine(TrySwap(firstSelectedCell, secondSelectedCell));
 
         firstSelectedCell = null;
         mouseDownWorldPos = Vector3.zero;
@@ -108,8 +110,9 @@ public class FruitController : MonoBehaviour
         }
         return null;
     }
-    private void TrySwap(FruitCell a, FruitCell b)
+    IEnumerator TrySwap(FruitCell a, FruitCell b)
     {
+
         GameObject tempA = a.GetFruit();
         GameObject tempB = b.GetFruit();
 
@@ -118,13 +121,79 @@ public class FruitController : MonoBehaviour
 
         Debug.Log($"Swapped: {a.GetXY()} <-> {b.GetXY()}");
 
+        yield return StartCoroutine(HandleFruitSpecial(a,b));
+        
         HandleMatches();
 
+        
+        StartCoroutine(BackFruit(a, b, tempA, tempB));
+    }
+    //switch case de
+    IEnumerator HandleFruitSpecial(FruitCell a, FruitCell b)
+    {
+        
+        if (a.GetFruitType() == FruitType.Missile_Hor)
+        {
+            a.transform.GetChild(0)?.GetComponent<Missile>().ActiveEffect(a,b);
+            yield return StartCoroutine(WaitToFallAndSpawn());
+
+        }
+        else if (b.GetFruitType() == FruitType.Missile_Hor)
+        {
+            b.transform.GetChild(0)?.GetComponent<Missile>().ActiveEffect(a,b);
+            yield return StartCoroutine(WaitToFallAndSpawn());
+
+
+        }
+        else if(a.GetFruitType() == FruitType.Bomb)
+        {
+            a.transform.GetChild(0)?.GetComponent<Bomb>().ActiveEffect(a,b);
+            yield return StartCoroutine(WaitToFallAndSpawn());
+        }
+        else if (b.GetFruitType() == FruitType.Bomb)
+        {
+            b.transform.GetChild(0)?.GetComponent<Bomb>().ActiveEffect(a,b);
+            yield return StartCoroutine(WaitToFallAndSpawn());
+
+
+        }
+        else if (a.GetFruitType() == FruitType.Missile_Ver)
+        {
+            a.transform.GetChild(0)?.GetComponent<Missile>().ActiveEffect(a,b);
+            yield return StartCoroutine(WaitToFallAndSpawn());
+
+        }
+        else if (b.GetFruitType() == FruitType.Missile_Ver)
+        {
+            b.transform.GetChild(0)?.GetComponent<Missile>().ActiveEffect(a,b);
+            yield return StartCoroutine(WaitToFallAndSpawn());
+        }
+        else if (a.GetFruitType() == FruitType.Rubik)
+        {
+            a.transform.GetChild(0)?.GetComponent<Rubik>().ActiveEffect(a,b);
+            yield return StartCoroutine(WaitToFallAndSpawn());
+
+        }
+        else if (b.GetFruitType() == FruitType.Rubik)
+        {
+            b.transform.GetChild(0)?.GetComponent<Rubik>().ActiveEffect(a,b);
+            yield return StartCoroutine(WaitToFallAndSpawn());
+        }
+    }
+    private IEnumerator BackFruit(FruitCell a, FruitCell b, GameObject tempA, GameObject tempB)
+    {
+
+        List<List<FruitCell>> matchGroups = MatchChecker.FindMatches(fruitBoard.fruitCells);
+        if (matchGroups.Count > 0) yield break;
+        
+        yield return new WaitForSeconds(0.3f);
+        b.ChangeFruit(tempB);
+        a.ChangeFruit(tempA);
     }
     IEnumerator WaitToFallAndSpawn()
     {
-        yield return new WaitForSeconds(1f);
-        StartCoroutine(spawner.Falling());
+        yield return new WaitForSeconds(0.1f);
+        yield return StartCoroutine(spawner.Falling());
     }
     private void OnDrawGizmos()
     {
@@ -147,24 +216,52 @@ public class FruitController : MonoBehaviour
         while (true)
         {
             isMatching = false;
-
+            yield return new WaitForSeconds(0.3f);
             List<List<FruitCell>> matchGroups = MatchChecker.FindMatches(fruitBoard.fruitCells);
-            if (matchGroups.Count == 0) break;
+            if (matchGroups.Count <= 0) break;
+
 
             isMatching = true;
             foreach (var group in matchGroups)
             {
+                
                 foreach (var cell in group)
                 {
-                    Destroy(cell.GetFruit());
+                    /*Destroy(cell.GetFruit());*/
+                    cell?.GetFruit()?.GetComponent<Fruit>().DestroyThis();
                     cell.ChangeFruit(null);
                 }
+                SpawnFruitSpecial(group, group[UnityEngine.Random.Range(0, group.Count)]);
+
             }
 
-            yield return new WaitForSeconds(0.2f); 
+            /*yield return new WaitForSeconds(0.2f); */
             yield return StartCoroutine(WaitToFallAndSpawn());
-            Debug.Log("Da roi xong check de de quy");
-            yield return new WaitForSeconds(5f); 
         }
+    }
+    private void SpawnFruitSpecial(List<FruitCell> group, FruitCell cell)
+    {
+        if (group.Count == 3)
+        {
+            return;
+        }
+        else if (group.Count == 4)
+        {
+            int index = (int)UnityEngine.Random.Range(0, 2);
+            Spawner.Instance.SpawnSpecialFruit(index, cell);
+        }
+        else if (group.Count == 5)
+        {
+            Spawner.Instance.SpawnSpecialFruit(3, cell);
+
+        }
+        else if (group.Count >= 6)
+        {
+            Spawner.Instance.SpawnSpecialFruit(2, cell);
+
+        }
+        else
+            return;
+
     }
 }

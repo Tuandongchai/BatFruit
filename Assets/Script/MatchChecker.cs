@@ -58,14 +58,13 @@ public class MatchChecker : MonoBehaviour
         HashSet<FruitCell> matchedCells = new HashSet<FruitCell>();
         List<List<FruitCell>> matches = new List<List<FruitCell>>();
 
-        // T?o map t? cell
         foreach (var cell in cells)
         {
             Vector2Int pos = Vector2Int.RoundToInt(cell.GetXY());
             cellMap[pos] = cell;
         }
 
-        // Quét theo hàng ngang
+
         foreach (var kvp in cellMap)
         {
             Vector2Int pos = kvp.Key;
@@ -75,12 +74,12 @@ public class MatchChecker : MonoBehaviour
 
             List<FruitCell> horizontalMatch = new List<FruitCell> { startCell };
 
-            for (int i = 1; i < 6; i++) // t?i ?a 5 ô
+            for (int i = 1; i < 6; i++)
             {
                 Vector2Int nextPos = pos + new Vector2Int(i, 0);
                 if (!cellMap.TryGetValue(nextPos, out var nextCell)) break;
 
-                var nextFruit = nextCell.GetFruit()?.GetComponent<Fruit>();
+                var nextFruit = nextCell?.GetFruit()?.GetComponent<Fruit>();
                 if (nextFruit == null || nextFruit.type != fruit.type) break;
 
                 horizontalMatch.Add(nextCell);
@@ -94,7 +93,7 @@ public class MatchChecker : MonoBehaviour
             }
         }
 
-        // Quét theo hàng d?c
+
         foreach (var kvp in cellMap)
         {
             Vector2Int pos = kvp.Key;
@@ -104,7 +103,7 @@ public class MatchChecker : MonoBehaviour
 
             List<FruitCell> verticalMatch = new List<FruitCell> { startCell };
 
-            for (int i = 1; i < 6; i++) // t?i ?a 5 ô
+            for (int i = 1; i < 6; i++)
             {
                 Vector2Int nextPos = pos + new Vector2Int(0, i);
                 if (!cellMap.TryGetValue(nextPos, out var nextCell)) break;
@@ -123,8 +122,7 @@ public class MatchChecker : MonoBehaviour
             }
         }
 
-        // Gom t?t c? cell trùng vào danh sách nhóm
-        // (tránh trùng l?p, ví d? ch? T có th? match c? ngang và d?c)
+       
         List<List<FruitCell>> finalGroups = MergeOverlappingMatches(matches);
 
         return finalGroups;
