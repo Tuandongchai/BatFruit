@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class Fruit : MonoBehaviour, IDestroy
     [SerializeField] private GameObject parent;
     [SerializeField] private GameObject particleDestroy;
 
+    private bool isDestroyed = false;
     private void Start()
     {
         SetParent(transform.parent);
@@ -25,17 +27,20 @@ public class Fruit : MonoBehaviour, IDestroy
     
     public void DestroyThis()
     {
+        if (isDestroyed) return;
+        isDestroyed = true;
         if (gameObject == null)
             return;
+        gameObject?.GetComponent<FruitSpecial>()?.ActiveEffect(parent?.GetComponent<FruitCell>(), parent?.GetComponent<FruitCell>());
         if (particleDestroy && parent != null)
         {
             GameObject go = Instantiate(particleDestroy, transform.position, Quaternion.identity);
             /*go.transform.localPosition = Vector3.zero;*/
             go.transform.SetParent(null);
         }
-
         Destroy(gameObject,0.02f);
     }
+
     public FruitType GetFruitType()
     {
         return this.type;

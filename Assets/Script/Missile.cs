@@ -4,18 +4,33 @@ using UnityEngine;
 
 public class Missile : FruitSpecial
 {
-    public void ActiveEffect(FruitCell a, FruitCell b)
+    protected override void Start()
     {
-        Active(a, b);
+        base.Start();
     }
-    protected override void Active(FruitCell a, FruitCell b)
+    protected override List<FruitCell> FruitCells(FruitCell a = null, FruitCell b = null)
     {
+        base.FruitCells(a, b);
         List<FruitCell> cells = new List<FruitCell>();
-        cells = FruitCells(a, b);
-        foreach (FruitCell cell in cells)
+        if (type == FruitType.Missile_Hor)
         {
-            cell.GetFruit().GetComponent<Fruit>().DestroyThis();
+            foreach (FruitCell f in board.fruitCells)
+            {
+                if (f.GetXY().x == pos.x)
+                    cells.Add(f);
+            }
+            return cells;
         }
+        else if (type == FruitType.Missile_Ver)
+        {
+            foreach (FruitCell f in board.fruitCells)
+            {
+                if (f.GetXY().y == pos.y)
+                    cells.Add(f);
+            }
+            return cells;
+        }
+        return null;
     }
 
 

@@ -52,6 +52,7 @@ public class MatchChecker : MonoBehaviour
          DFS(pos + Vector2Int.left, type, map, visited, group);
          DFS(pos + Vector2Int.right, type, map, visited, group);
      }*/
+
     public static List<List<FruitCell>> FindMatches(List<FruitCell> cells)
     {
         Dictionary<Vector2Int, FruitCell> cellMap = new Dictionary<Vector2Int, FruitCell>();
@@ -69,7 +70,10 @@ public class MatchChecker : MonoBehaviour
         {
             Vector2Int pos = kvp.Key;
             FruitCell startCell = kvp.Value;
-            Fruit fruit = startCell.GetFruit()?.GetComponent<Fruit>();
+
+            
+
+            Fruit fruit = startCell?.GetFruit()?.GetComponent<Fruit>();
             if (fruit == null) continue;
 
             List<FruitCell> horizontalMatch = new List<FruitCell> { startCell };
@@ -80,6 +84,7 @@ public class MatchChecker : MonoBehaviour
                 if (!cellMap.TryGetValue(nextPos, out var nextCell)) break;
 
                 var nextFruit = nextCell?.GetFruit()?.GetComponent<Fruit>();
+                
                 if (nextFruit == null || nextFruit.type != fruit.type) break;
 
                 horizontalMatch.Add(nextCell);

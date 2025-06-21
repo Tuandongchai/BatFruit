@@ -4,17 +4,28 @@ using UnityEngine;
 
 public class Bomb : FruitSpecial
 {
-    public void ActiveEffect(FruitCell a, FruitCell b)
+    protected override void Start()
     {
-        Active(a,b);
+        base.Start();
     }
-    protected override void Active(FruitCell a, FruitCell b)
+    protected override List<FruitCell> FruitCells(FruitCell a = null, FruitCell b = null)
     {
+        base.FruitCells(a, b);
         List<FruitCell> cells = new List<FruitCell>();
-        cells = FruitCells(a,b);
-        foreach (FruitCell cell in cells)
+        foreach (FruitCell f in board.fruitCells)
         {
-            cell.GetFruit().GetComponent<Fruit>().DestroyThis();
+            Vector2 xy = f.GetXY();
+            int dx = (int)Mathf.Abs(xy.x - pos.x);
+            int dy = (int)Mathf.Abs(xy.y - pos.y);
+
+            if ((dx <= 2 && dy <= 2) && !(dx == 0 && dy == 0))
+            {
+                if (!cells.Contains(f))
+                    cells.Add(f);
+            }
         }
+        cells.Add(this.transform.parent.GetComponent<FruitCell>());
+        return cells;
+
     }
 }
