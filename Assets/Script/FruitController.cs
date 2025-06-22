@@ -20,14 +20,25 @@ public class FruitController : MonoBehaviour
     private Vector3 mouseDownWorldPos;
 
     private bool isMatching = false;
+    private bool pause = false;
 
+    private void OnDisable()
+    {
+        InGameUIManager.pause -= SetPauseGame;
+        
+    }
     private void Start()
     {
+        fruitBoard = FindObjectOfType<Board>();
+        spawner = FindObjectOfType<Spawner>();
         /*HandleMatches();*/
+        InGameUIManager.pause += SetPauseGame;
     }
     private void Update()
     {
+        if (pause) return;
         if (isMatching) return;
+        Debug.Log(pause);
         ManagerController();
     }
 
@@ -132,6 +143,8 @@ public class FruitController : MonoBehaviour
     //switch case de
     IEnumerator HandleFruitSpecial(FruitCell a, FruitCell b)
     {
+        while (pause)
+            yield return null;
         List<FruitType> specialType = new List<FruitType> {FruitType.Missile_Hor, FruitType.Missile_Ver, FruitType.Bomb, FruitType.Rubik };
         FruitType aType = a.GetFruitType();
         FruitType bType = b.GetFruitType();
@@ -196,6 +209,8 @@ public class FruitController : MonoBehaviour
     }
     IEnumerator WaitToFallAndSpawn()
     {
+        while (pause)
+            yield return null;
         yield return new WaitForSeconds(0.1f);
         yield return StartCoroutine(spawner.Falling());
     }
@@ -219,6 +234,8 @@ public class FruitController : MonoBehaviour
     {
         while (true)
         {
+            while (pause)
+                yield return null;
             isMatching = false;
             yield return new WaitForSeconds(0.3f);
             List<List<FruitCell>> matchGroups = MatchChecker.FindMatches(fruitBoard.fruitCells);
@@ -267,5 +284,9 @@ public class FruitController : MonoBehaviour
         else
             return;
 
+    }
+    private void SetPauseGame(bool pause)
+    {
+        this.pause = pause; 
     }
 }

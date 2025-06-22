@@ -31,7 +31,8 @@ public class Fruit : MonoBehaviour, IDestroy
         isDestroyed = true;
         if (gameObject == null)
             return;
-        gameObject?.GetComponent<FruitSpecial>()?.ActiveEffect(parent?.GetComponent<FruitCell>(), parent?.GetComponent<FruitCell>());
+        //gameObject?.GetComponent<FruitSpecial>()?.ActiveEffect(parent?.GetComponent<FruitCell>(), parent?.GetComponent<FruitCell>());
+        gameObject?.GetComponent<FruitSpecial>()?.ActiveEffect();
         if (particleDestroy && parent != null)
         {
             GameObject go = Instantiate(particleDestroy, transform.position, Quaternion.identity);

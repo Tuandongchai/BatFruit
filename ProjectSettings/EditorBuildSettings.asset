@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Simasart/Hungry Bat/Demos/HungryBat_MenuStart.unity
+    guid: b5de2bdf52e3afd47ac9ae9a1ab99e92
+  - enabled: 1
+    path: Assets/Simasart/Hungry Bat/Demos/HungryBat_Gameplay.unity
+    guid: 2548db127a569c3489d6bb8886329a1f
   m_configObjects: {}
