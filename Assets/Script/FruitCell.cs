@@ -15,6 +15,9 @@ public class FruitCell : MonoBehaviour
 
     [SerializeField] private Fruit fruit;
     [SerializeField] private GameObject fruitObject;
+
+    
+
     public void Init(int x, int y)
     {
         this.x = x;

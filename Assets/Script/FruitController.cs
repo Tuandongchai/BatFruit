@@ -22,6 +22,8 @@ public class FruitController : MonoBehaviour
     private bool isMatching = false;
     private bool pause = false;
 
+    public static Action swap;
+
     private void OnDisable()
     {
         InGameUIManager.pause -= SetPauseGame;
@@ -38,7 +40,6 @@ public class FruitController : MonoBehaviour
     {
         if (pause) return;
         if (isMatching) return;
-        Debug.Log(pause);
         ManagerController();
     }
 
@@ -56,7 +57,7 @@ public class FruitController : MonoBehaviour
         firstSelectedCell = GetCellUnderMouse();
 
         mouseDownWorldPos = GetMouseWorldPosition();
-        Debug.Log("Mouse down tai: " + mouseDownWorldPos);
+
 
 
     }
@@ -82,7 +83,6 @@ public class FruitController : MonoBehaviour
         Vector2 firstPos = firstSelectedCell.GetXY();
         Vector2 secondPos = firstPos + direction;
 
-        Debug.Log("tod do up"+secondPos);
         FruitCell secondSelectedCell = FindCellAt(secondPos);
         if (secondSelectedCell != null)
             StartCoroutine(TrySwap(firstSelectedCell, secondSelectedCell));
@@ -201,7 +201,11 @@ public class FruitController : MonoBehaviour
     {
 
         List<List<FruitCell>> matchGroups = MatchChecker.FindMatches(fruitBoard.fruitCells);
-        if (matchGroups.Count > 0) yield break;
+        if (matchGroups.Count > 0) {
+            swap?.Invoke();
+            yield break;
+        
+        }
         
         yield return new WaitForSeconds(0.3f);
         b.ChangeFruit(tempB);

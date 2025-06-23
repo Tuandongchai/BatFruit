@@ -9,6 +9,7 @@ public class Fruit : MonoBehaviour, IDestroy
     [SerializeField] private GameObject parent;
     [SerializeField] private GameObject particleDestroy;
 
+    public static Action<FruitType> broken;
     private bool isDestroyed = false;
     private void Start()
     {
@@ -33,6 +34,7 @@ public class Fruit : MonoBehaviour, IDestroy
             return;
         //gameObject?.GetComponent<FruitSpecial>()?.ActiveEffect(parent?.GetComponent<FruitCell>(), parent?.GetComponent<FruitCell>());
         gameObject?.GetComponent<FruitSpecial>()?.ActiveEffect();
+        broken?.Invoke(type);
         if (particleDestroy && parent != null)
         {
             GameObject go = Instantiate(particleDestroy, transform.position, Quaternion.identity);

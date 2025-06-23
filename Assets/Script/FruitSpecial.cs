@@ -41,17 +41,7 @@ public abstract class FruitSpecial : MonoBehaviour
     {
         Active(a, b);
     }
-    protected void Active(FruitCell a, FruitCell b)
-    {
-        List<FruitCell> cells = new List<FruitCell>();
-        cells = FruitCells(a, b);
-        if (cells.Count == 0)
-            return;
-        foreach (FruitCell cell in cells)
-        {
-            cell?.GetFruit()?.GetComponent<Fruit>()?.DestroyThis();
-        }
-    }
+    protected abstract void Active(FruitCell a, FruitCell b);
 
     protected virtual List<FruitCell> FruitCells(FruitCell a=null, FruitCell b=null)
     {
