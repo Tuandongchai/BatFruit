@@ -16,8 +16,6 @@ public class FruitCell : MonoBehaviour
     [SerializeField] private Fruit fruit;
     [SerializeField] private GameObject fruitObject;
 
-    
-
     public void Init(int x, int y)
     {
         this.x = x;
@@ -77,8 +75,10 @@ public class FruitCell : MonoBehaviour
     }
     public FruitType GetFruitType()
     {
-        
-        return GetFruit().GetComponent<Fruit>().GetFruitType();
+        var fruitObj = GetFruit();
+        return fruitObj != null && fruitObj.GetComponent<Fruit>() != null
+            ? fruitObj.GetComponent<Fruit>().GetFruitType()
+            : FruitType.none;
     }
     public void ChangeFruit(GameObject fruit)
     {

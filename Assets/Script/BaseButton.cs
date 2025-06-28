@@ -5,18 +5,14 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BaseButton : MonoBehaviour
+public abstract class BaseButton : MonoBehaviour
 {
     protected Button button;
-    public static Action onClicked;
     
     protected virtual void OnEnable()
     {
         button = GetComponent<Button>();
         button.onClick.AddListener(()=> OnButtonClick());
     }
-    protected virtual void OnButtonClick()
-    {
-        onClicked?.Invoke();
-    }
+    protected abstract void OnButtonClick();
 }

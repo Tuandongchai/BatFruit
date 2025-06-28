@@ -11,10 +11,8 @@ public class AutoDestroyPS : MonoBehaviour
         ps = GetComponent<ParticleSystem>();
         StartCoroutine(WaitAndDestroy());
     }
-
     IEnumerator WaitAndDestroy()
     {
-
         yield return new WaitUntil(() => !ps.IsAlive(true));
         Destroy(gameObject);
     }

@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4531218423860331366}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.95, y: 0.95, z: 0.95}
   m_ConstrainProportionsScale: 1
@@ -42,7 +42,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4531218423860331366}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 70c44f756c5dab646a992e7d32ba9188, type: 3}
   m_Name: 
@@ -110,6 +110,12 @@ MonoBehaviour:
   board: {fileID: 0}
   type: 10
   pos: {x: 0, y: 0}
+  isRubik: 0
+  RubikWithMissileEffectPrefab: {fileID: 2955254946764733781, guid: ec34ce225a8edd54f9fa91c12be653c9, type: 3}
+  RubikWithBombEffectPrefab: {fileID: 7933593838018947663, guid: f06935f651fbbbb4982455bd5bb4114c, type: 3}
+  RubikWithRubikPrefab: {fileID: 4081219276547689642, guid: 83f46e08499a1c24d96529faf71f02c6, type: 3}
+  handleEffectTrans: {fileID: 0}
+  handleEffectPrefab: {fileID: 849531529123454396, guid: 1abea8eea9f4d51499c03b2900527f6d, type: 3}
 --- !u!1 &7563089696193067728
 GameObject:
   m_ObjectHideFlags: 0

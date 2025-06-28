@@ -41,7 +41,6 @@ public class Spawner : MonoBehaviour
     
     public IEnumerator Falling()
     {
-        
         Init();
 
         int xMin = cellMap.Keys.Min(pos => pos.x);
@@ -66,7 +65,6 @@ public class Spawner : MonoBehaviour
 
         int countFruitToSpawn = 0;
 
-        // R?i trái cây xu?ng
         for (int y = yMin + 1; y <= yMax; y++)
         {
             Vector2Int currentPos = new Vector2Int(x, y);
@@ -106,8 +104,6 @@ public class Spawner : MonoBehaviour
                     countFruitToSpawn++;
             }
         }
-
-        // Sinh trái cây m?i và làm r?i
         while (countFruitToSpawn > 0)
         {
             Vector2Int spawnPos = new Vector2Int(x, yMax + 1);

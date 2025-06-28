@@ -126,14 +126,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7932989973944647012}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 70c44f756c5dab646a992e7d32ba9188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: 9
   parent: {fileID: 0}
-  particleDestroy: {fileID: 4202686100666821110, guid: 87da4b4ffa35fcb4dba5bea23b8d3bb8, type: 3}
+  particleDestroy: {fileID: 8478785073619471646, guid: 58392e3a6ee35784cb5d287e52f76975, type: 3}
 --- !u!61 &9200003675033044170
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -194,3 +194,6 @@ MonoBehaviour:
   board: {fileID: 0}
   type: 9
   pos: {x: 0, y: 0}
+  isRubik: 0
+  RubikWithMissileEffectPrefab: {fileID: 2955254946764733781, guid: ec34ce225a8edd54f9fa91c12be653c9, type: 3}
+  RubikWithBombEffectPrefab: {fileID: 7933593838018947663, guid: f06935f651fbbbb4982455bd5bb4114c, type: 3}

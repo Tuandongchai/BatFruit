@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6381730452159857841}
   - component: {fileID: 4923787236285668864}
   - component: {fileID: 3104042493334987372}
+  - component: {fileID: 6932108097714438849}
   m_Layer: 0
   m_Name: LineRenderer
   m_TagString: Untagged
@@ -182,3 +183,15 @@ MonoBehaviour:
   - {fileID: 2800000, guid: bdede83aca1a87b4086e90d9957bb811, type: 3}
   - {fileID: 2800000, guid: 0e7680a4806197349b8bbda7fb59fef3, type: 3}
   fps: 30
+--- !u!114 &6932108097714438849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675556135793322093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96117a442345e7a429b678c6351a18e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -3141,8 +3141,10 @@ MonoBehaviour:
   - {fileID: 4104982703275124467, guid: 1f9bc2baa3eecbe48aaac571067bd966, type: 3}
   - {fileID: 2991070137121810056, guid: e604a0a06f0ad2f4588b7a1127b77381, type: 3}
   - {fileID: 2418030742714711225, guid: fe78d4afa3f68664fa71adf376f4aea6, type: 3}
-  state: 1
-  fruitType: 0
+  - {fileID: 3508254559444113967, guid: 330f74c76088d854da6f3464208c2131, type: 3}
+  - {fileID: 8057490148716883388, guid: b2355464cfabdce438eaecc63368993a, type: 3}
+  state: 0
+  fruitType: 8
   x: 1
   y: -1
   fruit: {fileID: 0}
@@ -3449,7 +3451,7 @@ MonoBehaviour:
   - {fileID: 3508254559444113967, guid: 330f74c76088d854da6f3464208c2131, type: 3}
   - {fileID: 8057490148716883388, guid: b2355464cfabdce438eaecc63368993a, type: 3}
   state: 0
-  fruitType: 10
+  fruitType: 9
   x: -1
   y: -3
   fruit: {fileID: 0}
@@ -6584,7 +6586,7 @@ MonoBehaviour:
   - {fileID: 7811097892464576336, guid: 753b70be66adf444cbab83339d8dbd0d, type: 3}
   - {fileID: 3508254559444113967, guid: 330f74c76088d854da6f3464208c2131, type: 3}
   state: 0
-  fruitType: 9
+  fruitType: 10
   x: 0
   y: -3
   fruit: {fileID: 0}

@@ -126,7 +126,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6343106410338131904}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 70c44f756c5dab646a992e7d32ba9188, type: 3}
   m_Name: 
@@ -194,3 +194,6 @@ MonoBehaviour:
   board: {fileID: 0}
   type: 8
   pos: {x: 0, y: 0}
+  isRubik: 0
+  RubikWithMissileEffectPrefab: {fileID: 2955254946764733781, guid: ec34ce225a8edd54f9fa91c12be653c9, type: 3}
+  RubikWithBombEffectPrefab: {fileID: 0}
