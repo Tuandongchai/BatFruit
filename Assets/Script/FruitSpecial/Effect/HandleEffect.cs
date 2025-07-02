@@ -16,7 +16,7 @@ public class HandleEffect : MonoBehaviour
         Destroy(gameObject, 1.1f);
     }
 
-    public virtual IEnumerator Active(List<FruitCell> list)
+    public virtual IEnumerator Active(List<FruitCell> list, Transform trans=null)
     {
 
 

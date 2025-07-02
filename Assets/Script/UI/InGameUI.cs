@@ -19,6 +19,7 @@ public class InGameUI : MonoBehaviour
     [SerializeField] private GameObject fruitGoalPrefab;
     [SerializeField] private GameObject plusPrefab;
     [SerializeField] private GameObject star1, star2,star3;
+    [SerializeField] private bool star1s=false, star2s=false,star3s = false;
 
     private void OnEnable()
     {
@@ -84,16 +85,45 @@ public class InGameUI : MonoBehaviour
 
         if (percentSlider >= 0.8)
         {
+            if (star3s == true)
+                return;
             star3.SetActive(true);
-
+            LeanTween.scale(star3, new Vector3(2.5f, 2.5f, 2.5f), 0.3f)
+                     .setEase(LeanTweenType.easeOutBack)
+                     .setOnComplete(() =>
+                     {
+                         LeanTween.scale(star3, Vector3.one, 0.3f)
+                                  .setEase(LeanTweenType.easeInBack);
+                     });
+            star3s = true;
         }
         else if (percentSlider >= 0.55)
         {
+            if (star2s == true)
+                return;
             star2.SetActive(true) ;
+            LeanTween.scale(star2, new Vector3(2.5f, 2.5f, 2.5f), 0.3f)
+                     .setEase(LeanTweenType.easeOutBack)
+                     .setOnComplete(() =>
+                     {
+                         LeanTween.scale(star2, Vector3.one, 0.3f)
+                                  .setEase(LeanTweenType.easeInBack);
+                     });
+            star2s = true;
         }
         else if (percentSlider >= 0.2)
         {
+            if (star1s == true)
+                return;
             star1.SetActive(true);
+            LeanTween.scale(star1, new Vector3(2.5f, 2.5f, 2.5f), 0.3f)
+                     .setEase(LeanTweenType.easeOutBack)
+                     .setOnComplete(() =>
+                     {
+                         LeanTween.scale(star1, Vector3.one, 0.3f)
+                                  .setEase(LeanTweenType.easeInBack);
+                     });
+            star1s = true;
         }
     }
     

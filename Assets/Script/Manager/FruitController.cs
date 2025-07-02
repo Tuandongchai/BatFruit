@@ -166,23 +166,23 @@ public class FruitController : MonoBehaviour
             }
             else if (aType == FruitType.Bomb && bType == FruitType.Bomb)
             {
-                b.transform.GetChild(0)?.GetComponent<FruitSpecial>().ActiveSpecialEffect(2, b);
+                b.transform.GetChild(0)?.GetComponent<FruitSpecial>().ActiveSpecialEffect(2, b,a);
                 yield return StartCoroutine(WaitToFallAndSpawn());
             }
             else if (aType == FruitType.Rubik && bType == FruitType.Rubik)
             {
-                b.transform.GetChild(0)?.GetComponent<FruitSpecial>().ActiveSpecialEffect(3, b);
+                b.transform.GetChild(0)?.GetComponent<FruitSpecial>().ActiveSpecialEffect(3, b, a);
                 yield return StartCoroutine(WaitToFallAndSpawn());
             }
             else if ((aType == FruitType.Rubik && IsMissile(bType)) || (bType == FruitType.Rubik && IsMissile(aType)))
             {
-                yield return StartCoroutine(b.transform.GetChild(0)?.GetComponent<FruitSpecial>().RubikWithMissile());
+                yield return StartCoroutine(b.transform.GetChild(0)?.GetComponent<FruitSpecial>().RubikWithMissile(a,b));
                 yield return StartCoroutine(WaitToFallAndSpawn());
             }
             else if ((aType == FruitType.Rubik && bType == FruitType.Bomb || (bType == FruitType.Rubik && aType == FruitType.Bomb)))
             {
 
-                yield return StartCoroutine(b.transform.GetChild(0)?.GetComponent<FruitSpecial>().RubikWithBomb());
+                yield return StartCoroutine(b.transform.GetChild(0)?.GetComponent<FruitSpecial>().RubikWithBomb(a,b));
                 yield return StartCoroutine(WaitToFallAndSpawn());
             }
         }

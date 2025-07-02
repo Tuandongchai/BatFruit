@@ -111,17 +111,23 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
+
 public enum FruitType { Apple, Banana, Blueberry, grapes, orange, Pear, Strawberry, Missile_Hor, Missile_Ver, Bomb, Rubik, none };
 public class Fruit : MonoBehaviour
 {
     public FruitType type;
     [SerializeField] private GameObject parent;
     [SerializeField] private GameObject particleDestroy;
+    [SerializeField] private ScoreObjectPooling pool;
+    [SerializeField] private GameObject attackPoint;
+
 
     public static Action<FruitType> broken;
     public bool isDestroyed = false;
     private void Start()
     {
+        pool = FindObjectOfType<ScoreObjectPooling>();
         SetParent(transform.parent);
     }
     public void SetParent(Transform parent)
@@ -135,20 +141,34 @@ public class Fruit : MonoBehaviour
     }
 
 
-    public void DestroyThis(float i=0.02f, FruitCell a =null, FruitCell b=null)
+    public void DestroyThis(float i=0.05f, FruitCell a =null, FruitCell b=null)
     {
         if (this.isDestroyed) return;
         this.isDestroyed = true;
         if (gameObject == null)
             return;
         //gameObject?.GetComponent<FruitSpecial>()?.ActiveEffect(parent?.GetComponent<FruitCell>(), parent?.GetComponent<FruitCell>());
+        //
+        if (attackPoint != null)
+        {
+            GameObject score;
+            pool.Spawn(attackPoint.transform.position, out score);
+            ScorePlusUI scoreUI = score.GetComponent<ScorePlusUI>();
+            scoreUI.Init(attackPoint.transform);
+            scoreUI.Effect();
+
+        }
+        //
         gameObject?.GetComponent<FruitSpecial>()?.ActiveEffect(a,b);
+
         broken?.Invoke(type);
+
         if (particleDestroy && parent != null)
         {
             GameObject go = Instantiate(particleDestroy, transform.position, Quaternion.identity);
             /*go.transform.localPosition = Vector3.zero;*/
             go.transform.SetParent(null);
+           
         }
         Destroy(gameObject, i);
     }
@@ -156,5 +176,10 @@ public class Fruit : MonoBehaviour
     public FruitType GetFruitType()
     {
         return this.type;
+    }
+    public void Destroyit(float i)
+    {
+        Destroy(gameObject, i);
+
     }
 }

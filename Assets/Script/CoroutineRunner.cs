@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class CoroutineRunner : MonoBehaviour
@@ -30,5 +31,9 @@ public class CoroutineRunner : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+    public void RunCoroutine(IEnumerator routine)
+    {
+        StartCoroutine(routine);
     }
 }

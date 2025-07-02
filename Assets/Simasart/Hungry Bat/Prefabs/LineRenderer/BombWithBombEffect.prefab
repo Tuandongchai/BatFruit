@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5472448194045917271
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4611706649937528175}
+  - component: {fileID: 9091048441826700534}
+  m_Layer: 0
+  m_Name: BombWithBombEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4611706649937528175
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5472448194045917271}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9091048441826700534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5472448194045917271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a34124573fcd704cbb78efb213d2fd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  board: {fileID: 0}
+  lineRenPrefab: {fileID: 675556135793322093, guid: 3602e24b9ffcd6d4f9008fb56688a132, type: 3}
+  RubikParticle: {fileID: 0}
+  RubikWithRubikParticle: {fileID: 0}
+  cellList: []
+  bombWithBomb_VFX: {fileID: 4042207707875660937, guid: 7ba49737993924f4abcc8f82ba3a3272, type: 3}
+  transStart: {fileID: 0}
+  posStart: {x: 0, y: 0, z: 0}

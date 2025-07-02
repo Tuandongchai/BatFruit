@@ -69,6 +69,7 @@ using UnityEngine;
 
 public class Bomb : FruitSpecial
 {
+    [SerializeField] private GameObject bombEffectPrefab;
     protected override void Start()
     {
         base.Start();
@@ -79,7 +80,7 @@ public class Bomb : FruitSpecial
         cells = FruitCells(a, b);
         if (cells.Count == 0)
             return;
-        foreach (FruitCell cell in cells)
+       /* foreach (FruitCell cell in cells)
         {
             GameObject fruit = cell?.GetFruit();
             if (fruit != null)
@@ -89,7 +90,14 @@ public class Bomb : FruitSpecial
                 fruit.GetComponent<Fruit>().DestroyThis();
             }
             //cell?.GetFruit()?.GetComponent<Fruit>()?.DestroyThis();
-        }
+        }*/
+        GameObject he = Instantiate(bombEffectPrefab, this.gameObject.transform.position, Quaternion.identity);
+        he.transform.SetParent(GameObject.Find("HandleEffectPos").transform);
+
+        //StartCoroutine(he.gameObject.GetComponent<MissileHorEffect>().Active(cells, this.transform));
+        CoroutineRunner.Instance.RunCoroutine(he.GetComponent<BombEffect>().Active(cells, this.transform));
+
+        this.transform.parent.GetComponent<FruitCell>().GetFruit()?.GetComponent<Fruit>()?.DestroyThis(0.1f);
 
     }
     protected override List<FruitCell> FruitCells(FruitCell a = null, FruitCell b = null)

@@ -69,6 +69,8 @@ using UnityEngine;
 
 public class Missile : FruitSpecial
 {
+    [SerializeField] private GameObject MissileHorEffectPrefab;
+    [SerializeField] private GameObject MissileVerEffectPrefab;
     protected override void Start()
     {
         base.Start();
@@ -79,7 +81,7 @@ public class Missile : FruitSpecial
         cells = FruitCells(a, b);
         if (cells.Count == 0)
             return;
-        foreach (FruitCell cell in cells)
+        /*foreach (FruitCell cell in cells)
         {
             GameObject fruit = cell?.GetFruit();
             if (fruit != null)
@@ -88,6 +90,27 @@ public class Missile : FruitSpecial
                 cell.ChangeFruit(null);
                 fruit.GetComponent<Fruit>().DestroyThis();
             }
+        }*/
+        if (type == FruitType.Missile_Ver)
+        {
+
+            GameObject he = Instantiate(MissileHorEffectPrefab, this.gameObject.transform.position, Quaternion.identity);
+            he.transform.SetParent(GameObject.Find("HandleEffectPos").transform);
+
+            //StartCoroutine(he.gameObject.GetComponent<MissileHorEffect>().Active(cells, this.transform));
+            CoroutineRunner.Instance.RunCoroutine(he.GetComponent<MissileHorEffect>().Active(cells, this.transform));
+
+            this.transform.parent.GetComponent<FruitCell>().GetFruit()?.GetComponent<Fruit>()?.DestroyThis(0.1f);
+        }
+        else if(type == FruitType.Missile_Hor)
+        {
+            GameObject he = Instantiate(MissileVerEffectPrefab, this.gameObject.transform.position, Quaternion.identity);
+            he.transform.SetParent(GameObject.Find("HandleEffectPos").transform);
+
+            //StartCoroutine(he.gameObject.GetComponent<MissileHorEffect>().Active(cells, this.transform));
+            CoroutineRunner.Instance.RunCoroutine(he.GetComponent<MissileVerEffect>().Active(cells, this.transform));
+
+            this.transform.parent.GetComponent<FruitCell>().GetFruit()?.GetComponent<Fruit>()?.DestroyThis(0.1f);
         }
 
     }

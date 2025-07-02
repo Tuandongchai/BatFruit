@@ -6586,7 +6586,7 @@ MonoBehaviour:
   - {fileID: 7811097892464576336, guid: 753b70be66adf444cbab83339d8dbd0d, type: 3}
   - {fileID: 3508254559444113967, guid: 330f74c76088d854da6f3464208c2131, type: 3}
   state: 0
-  fruitType: 10
+  fruitType: 9
   x: 0
   y: -3
   fruit: {fileID: 0}

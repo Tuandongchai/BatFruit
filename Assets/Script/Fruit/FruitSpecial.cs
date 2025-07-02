@@ -212,6 +212,7 @@ public abstract class FruitSpecial : MonoBehaviour
     [SerializeField] protected GameObject RubikWithMissileEffectPrefab;
     [SerializeField] protected GameObject RubikWithBombEffectPrefab;
     [SerializeField] protected GameObject RubikWithRubikPrefab;
+    [SerializeField] protected GameObject BombWithBomPrefab;
 
     protected bool isActive = true;
     protected virtual void Start()
@@ -220,16 +221,16 @@ public abstract class FruitSpecial : MonoBehaviour
         this.pos = transform.parent.GetComponent<FruitCell>().GetXY();
         board = FindObjectOfType<Board>();
     }
-    public void ActiveSpecialEffect(int index, FruitCell b)
+    public void ActiveSpecialEffect(int index, FruitCell b, FruitCell a =null)
     {
         if (index == 0)
             MissileWithMissileCase(b);
         else if (index == 1)
             MissileWithBombCase(b);
         else if (index == 2)
-            BombWithBombCase(b);
+            BombWithBombCase(b,a);
         else if (index == 3)
-            RubikWithRubik(b);
+            RubikWithRubik(b,a);
         /*else if (index == 4)
             StartCoroutine(RubikWithMissile());*/
 
@@ -306,7 +307,7 @@ public abstract class FruitSpecial : MonoBehaviour
         }
 
     }
-    protected void BombWithBombCase(FruitCell b)
+    protected void BombWithBombCase(FruitCell b, FruitCell a)
     {
         List<FruitCell> cells = new List<FruitCell>();
         foreach (FruitCell f in board.fruitCells)
@@ -324,13 +325,20 @@ public abstract class FruitSpecial : MonoBehaviour
         cells.Add(this.transform.parent.GetComponent<FruitCell>());
         if (cells.Count == 0)
             return;
-        foreach (FruitCell cell in cells)
+        /*foreach (FruitCell cell in cells)
         {
             cell?.GetFruit()?.GetComponent<Fruit>()?.DestroyThis();
-        }
+        }*/
+        GameObject he = Instantiate(BombWithBomPrefab, this.gameObject.transform.position, Quaternion.identity);
+        he.transform.SetParent(GameObject.Find("HandleEffectPos").transform);
+
+        CoroutineRunner.Instance.RunCoroutine(he.gameObject.GetComponent<BombWithBombEffect>().Active(cells, this.transform));
+        
+        this.transform.parent.GetComponent<FruitCell>().GetFruit()?.GetComponent<Fruit>()?.Destroyit(0.1f);
+        a.GetComponent<FruitCell>().GetFruit()?.GetComponent<Fruit>()?.Destroyit(0.1f);
 
     }
-    protected void RubikWithRubik(FruitCell b)
+    protected void RubikWithRubik(FruitCell b, FruitCell a)
     {
         isActive = false;
         List<FruitCell> cells = new List<FruitCell>();
@@ -351,8 +359,10 @@ public abstract class FruitSpecial : MonoBehaviour
         StartCoroutine(he.gameObject.GetComponent<RubikWithRubikEffect>().Active(cells));
 
         this.transform.parent.GetComponent<FruitCell>().GetFruit()?.GetComponent<Fruit>()?.DestroyThis(0.1f);
+        a.GetComponent<FruitCell>().GetFruit()?.GetComponent<Fruit>()?.DestroyThis(0.1f);
+
     }
-    public IEnumerator RubikWithMissile()
+    public IEnumerator RubikWithMissile(FruitCell a, FruitCell b)
     {
         isActive = false;
         List<FruitCell> cells = new List<FruitCell>();
@@ -375,8 +385,9 @@ public abstract class FruitSpecial : MonoBehaviour
         StartCoroutine(he.gameObject.GetComponent<RubikWithMissileEffect>().Active(cells));
 
         this.transform.parent.GetComponent<FruitCell>().GetFruit()?.GetComponent<Fruit>()?.DestroyThis(0.1f);
+        a.GetFruit()?.GetComponent<Fruit>()?.DestroyThis(0.1f);
     }
-    public IEnumerator RubikWithBomb()
+    public IEnumerator RubikWithBomb(FruitCell a, FruitCell b)
     {
         isActive = false;
         List<FruitCell> cells = new List<FruitCell>();
@@ -394,8 +405,10 @@ public abstract class FruitSpecial : MonoBehaviour
         GameObject he = Instantiate(RubikWithBombEffectPrefab, this.gameObject.transform.position, Quaternion.identity);
 
         he.transform.SetParent(GameObject.Find("HandleEffectPos").transform);
-        StartCoroutine(he.gameObject.GetComponent<RubikWithBombEffect>().Active(cells));
+        CoroutineRunner.Instance.RunCoroutine(he.gameObject.GetComponent<RubikWithBombEffect>().Active(cells));
 
         this.transform.parent.GetComponent<FruitCell>().GetFruit()?.GetComponent<Fruit>()?.DestroyThis(0.1f);
+        //
+        a.GetFruit()?.GetComponent<Fruit>()?.DestroyThis(0.1f);
     }
 }
