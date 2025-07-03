@@ -56,6 +56,13 @@ MonoBehaviour:
   y: 0
   fruit: {fileID: 0}
   fruitObject: {fileID: 0}
+  oState: 1
+  obstacleList:
+  - {fileID: 7897735940712053699, guid: 80729638b8fef50459db56e4af01299d, type: 3}
+  - {fileID: 5987982734216367881, guid: 19253e8899ce8154ca206ee9a0c20865, type: 3}
+  - {fileID: 5911700286506421288, guid: 443fbc4a82321d4418e0905e4a15e72a, type: 3}
+  - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
+  obstacleType: 4
 --- !u!61 &923819415564879417
 BoxCollider2D:
   m_ObjectHideFlags: 0

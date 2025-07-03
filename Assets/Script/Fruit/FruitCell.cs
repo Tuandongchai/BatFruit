@@ -17,9 +17,12 @@ public class FruitCell : MonoBehaviour
     [SerializeField] private Fruit fruit;
     [SerializeField] private GameObject fruitObject;
 
-    /*[SerializeField] private enum ObstacleState {Has ,None};
-    [Header("Setup Obstacle")]*/
-
+    public enum ObstacleState { None, Has };
+    [Header("Setup Obstacle")]
+    [SerializeField] private ObstacleState oState;
+    [SerializeField] Obstacle[] obstacleList;
+    [SerializeField] ObstacleCellType obstacleType;
+    [SerializeField] private GameObject obstacleObject =null;
 
 
     public void Init(int x, int y)
@@ -72,12 +75,33 @@ public class FruitCell : MonoBehaviour
                 fruitObject.GetComponent<Fruit>().SetParent(gameObject.transform);
             }
         }
+        if(oState == ObstacleState.Has)
+        {
+            Obstacle matchedObstacle = obstacleList.FirstOrDefault(f => f.type == obstacleType);
+            {
+                GameObject fruitIns = Instantiate(matchedObstacle.gameObject, Vector3.zero, Quaternion.identity);
+                fruitIns.transform.SetParent(transform);
+                fruitIns.transform.localPosition = Vector3.zero;
+                foreach (Transform go in gameObject.transform)
+                {
+                    if (go.TryGetComponent(out Obstacle obs ))
+                    {
+                        obstacleObject = go.gameObject; break;
+                    }
+
+                }
+            }
+        }
     }
     public void Configure(Fruit fruit) => this.fruit = fruit;
 
     public GameObject GetFruit()
     {
         return fruitObject;
+    }
+    public GameObject GetObstacle()
+    {
+        return obstacleObject;
     }
     public FruitType GetFruitType()
     {

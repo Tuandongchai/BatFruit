@@ -12,6 +12,7 @@ public class InGameUI : MonoBehaviour
     [Header("Elements")]
     [SerializeField] LevelSO[] requires = new LevelSO[] { };
     [SerializeField] Dictionary<FruitType,GameObject> goalsUI = new Dictionary<FruitType, GameObject> { };
+    [SerializeField] Dictionary<ObstacleCellType,GameObject> goalsObsUI = new Dictionary<ObstacleCellType, GameObject> { };
 
     [Header("Setup")]
     [SerializeField] private TextMeshProUGUI stepText, scoreText;
@@ -54,16 +55,39 @@ public class InGameUI : MonoBehaviour
     private void SetupGoal(int cl)
     {
         int length = requires[cl - 1].items.Count;
-        for (int i = 0; i < length; i++)
+        Debug.Log("length: "+ length);
+        if(length > 0 )
         {
-            GameObject go = Instantiate(fruitGoalPrefab, Vector2.zero, Quaternion.identity, goalPos);
-            go.GetComponentInChildren<Image>().sprite = requires[cl - 1].items[i].item;
-            go.GetComponentInChildren<TextMeshProUGUI>().text = requires[cl - 1].items[i].amount.ToString();
+            for (int i = 0; i < length; i++)
+            {
+                GameObject go = Instantiate(fruitGoalPrefab, Vector2.zero, Quaternion.identity, goalPos);
+                go.GetComponentInChildren<Image>().sprite = requires[cl - 1].items[i].item;
+                go.GetComponentInChildren<TextMeshProUGUI>().text = requires[cl - 1].items[i].amount.ToString();
 
-            goalsUI.Add(requires[cl - 1].items[i].type, go);
+                goalsUI.Add(requires[cl - 1].items[i].type, go);
 
-            if (i == length - 1) return;
-            Instantiate(plusPrefab, Vector2.zero, Quaternion.identity, goalPos);
+                if (i == length - 1) break;
+                Instantiate(plusPrefab, Vector2.zero, Quaternion.identity, goalPos);
+            }
+        }
+        int length1 = requires[cl -1].obstacles.Count;
+        Debug.Log("length1: "+ length1);
+        if (length1 > 0)
+        {
+            for (int i = 0; i < length1; i++)
+            {
+                if(length>0)
+                    Instantiate(plusPrefab, Vector2.zero, Quaternion.identity, goalPos);
+
+                GameObject go = Instantiate(fruitGoalPrefab, Vector2.zero, Quaternion.identity, goalPos);
+                go.GetComponentInChildren<Image>().sprite = requires[cl - 1].obstacles[i].itemObstacle;
+                go.GetComponentInChildren<TextMeshProUGUI>().text = requires[cl - 1].obstacles[i].amount.ToString();
+
+                goalsObsUI.Add(requires[cl - 1].obstacles[i].obstacleType, go);
+
+                if (i == length1 - 1) break;
+                Instantiate(plusPrefab, Vector2.zero, Quaternion.identity, goalPos);
+            }
         }
 
     }
@@ -76,6 +100,13 @@ public class InGameUI : MonoBehaviour
         foreach (GoalItem item in requires[StatsManager.Instance.GetLevelCurrent()-1].items)
         {
             goalsUI[item.type].GetComponentInChildren<TextMeshProUGUI>().text = goals[item.type].ToString();
+        }
+        Dictionary<ObstacleCellType, int> goalsObs = new Dictionary<ObstacleCellType, int>();
+        goalsObs = LevelManager.instance.GetGoalObsUpdate();
+
+        foreach (GoaObstacle item in requires[StatsManager.Instance.GetLevelCurrent() - 1].obstacles)
+        {
+            goalsObsUI[item.obstacleType].GetComponentInChildren<TextMeshProUGUI>().text = goalsObs[item.obstacleType].ToString();
         }
     }
     private void UpdateScoreUI(FruitType type)

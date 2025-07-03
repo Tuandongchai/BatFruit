@@ -45,7 +45,7 @@ public class LateGameEffect : HandleEffect
         }
         yield return null;
         Destroy(go);
-        yield return new WaitForSeconds(1.1f);
+        yield return new WaitForSeconds(1.2f);
         GameManager.instance.SetGameState(GameState.Win);
     }
     /*private IEnumerator SpawnBomb(List<FruitCell> cells)

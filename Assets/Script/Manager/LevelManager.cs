@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,7 +24,12 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private int step;
     [SerializeField] private Dictionary<FruitType, int> goals = new Dictionary<FruitType, int>();
     [SerializeField] private Dictionary<FruitType, int> goalsUpdate = new Dictionary<FruitType, int>();
+
+    [SerializeField] private Dictionary<ObstacleCellType, int> goalsObs = new Dictionary<ObstacleCellType, int>();
+    [SerializeField] private Dictionary<ObstacleCellType, int> goalsObsUpdate = new Dictionary<ObstacleCellType, int>();
+
     [SerializeField] private List<FruitType> fruitTypes = new List<FruitType>();
+    [SerializeField] private List<ObstacleCellType> obsTypes = new List<ObstacleCellType>();
     [SerializeField] private int requireCount;
     [SerializeField] private int score;
     private bool ac=false;
@@ -33,6 +39,9 @@ public class LevelManager : MonoBehaviour
         Fruit.broken += UpdateCore;
         Fruit.broken += UpdateGoal;
         Fruit.broken += CheckComplete;
+
+        Obstacle.obstacleBroken += UpdateGoalObs;
+        Obstacle.obstacleBroken += CheckCompleteObs;
     }
 
 
@@ -42,6 +51,9 @@ public class LevelManager : MonoBehaviour
         Fruit.broken -= UpdateCore;
         Fruit.broken += UpdateGoal;
         Fruit.broken -= CheckComplete;
+
+        Obstacle.obstacleBroken -= UpdateGoalObs;
+        Obstacle.obstacleBroken -= CheckCompleteObs;
     }
     private void Start()
     {
@@ -51,7 +63,8 @@ public class LevelManager : MonoBehaviour
             Destroy(gameObject);
         InitMap();
         goalsUpdate = goals;
-        requireCount = requires[StatsManager.Instance.GetLevelCurrent() - 1].items.Count;
+        goalsObsUpdate = goalsObs;
+        requireCount = requires[StatsManager.Instance.GetLevelCurrent() - 1].items.Count + requires[StatsManager.Instance.GetLevelCurrent() - 1].obstacles.Count;
 
         InitPameters(StatsManager.Instance.GetLevelCurrent());
     }
@@ -71,6 +84,10 @@ public class LevelManager : MonoBehaviour
             goals[item.type]=item.amount;
         }
 
+        foreach (GoaObstacle item in requires[cl - 1].obstacles)
+        {
+            goalsObs[item.obstacleType] = item.amount;
+        }
         /*foreach (GoalItem item in requires[cl - 1].items)
         {
             Debug.Log(goals[item.type]);
@@ -90,12 +107,29 @@ public class LevelManager : MonoBehaviour
         {
             if (item.type == type)
             {
-                goalsUpdate[type] = goalsUpdate[type]-1;
+                goalsUpdate[type] = goalsUpdate[type]-1<=0? 0:goalsUpdate[type]-1;
                 Debug.Log(type +" co so luong: "+ goalsUpdate[type]);
                 reduceGoals?.Invoke();
             }
             
         }
+
+        
+    }
+    private void UpdateGoalObs(ObstacleCellType type)
+    {
+        foreach (GoaObstacle item in requires[StatsManager.Instance.GetLevelCurrent() - 1].obstacles)
+        {
+            if (item.obstacleType == type)
+            {
+                goalsObsUpdate[type] = goalsObsUpdate[type] - 1<=0?0:goalsObsUpdate[type]-1;
+                Debug.Log(type + " co so luong: " + goalsObsUpdate[type]);
+                reduceGoals?.Invoke();
+            }
+
+        }
+
+
     }
     public LevelSO[] GetLevelInfo()
     {
@@ -103,6 +137,7 @@ public class LevelManager : MonoBehaviour
     }
     public int GetCurrentStep() => step;
     public Dictionary<FruitType, int> GetGoalUpdate() => goalsUpdate;
+    public Dictionary<ObstacleCellType, int> GetGoalObsUpdate() => goalsObsUpdate;
     private void CheckComplete(FruitType type)
     {
         
@@ -119,7 +154,22 @@ public class LevelManager : MonoBehaviour
         if (requireCount <= 0 && !ac)
            StartCoroutine(WaitToShowCompleteUI());
     }
+    private void CheckCompleteObs(ObstacleCellType type)
+    {
 
+        foreach (GoalItem item in requires[StatsManager.Instance.GetLevelCurrent() - 1].items)
+        {
+            bool result = goalsObsUpdate.TryGetValue(type, out int value);
+            if (result && value <= 0 && !obsTypes.Contains(type))
+            {
+                requireCount -= 1;
+                obsTypes.Add(type);
+            }
+        }
+        Debug.Log("count: " + requireCount);
+        if (requireCount <= 0 && !ac)
+            StartCoroutine(WaitToShowCompleteUI());
+    }
     IEnumerator WaitToShowCompleteUI()
     {
         ac =true;

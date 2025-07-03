@@ -156,48 +156,132 @@ public class FruitController : MonoBehaviour
 
             if (IsMissile(aType) && IsMissile(bType))
             {
-                b.transform.GetChild(0)?.GetComponent<FruitSpecial>().ActiveSpecialEffect(0, b);
+                //b.transform.GetChild(0)?.GetComponent<FruitSpecial>().ActiveSpecialEffect(0, b);
+                for (int i = 0; i < b.transform.childCount; i++)
+                {
+                    Transform child = b.transform.GetChild(i);
+                    FruitSpecial special = child.GetComponent<FruitSpecial>();
+
+                    if (special != null)
+                    {
+                        special.ActiveSpecialEffect(0, b, a);
+                        break;
+                    }
+                }
                 yield return StartCoroutine(WaitToFallAndSpawn());
             }
             else if ((IsMissile(aType) && bType == FruitType.Bomb) || (IsMissile(bType) && aType == FruitType.Bomb))
             {
-                b.transform.GetChild(0)?.GetComponent<FruitSpecial>().ActiveSpecialEffect(1, b);
+                //b.transform.GetChild(0)?.GetComponent<FruitSpecial>().ActiveSpecialEffect(1, b);
+                for (int i = 0; i < b.transform.childCount; i++)
+                {
+                    Transform child = b.transform.GetChild(i);
+                    FruitSpecial special = child.GetComponent<FruitSpecial>();
+
+                    if (special != null)
+                    {
+                        special.ActiveSpecialEffect(1, b, a);
+                        break;
+                    }
+                }
                 yield return StartCoroutine(WaitToFallAndSpawn());
             }
             else if (aType == FruitType.Bomb && bType == FruitType.Bomb)
             {
-                b.transform.GetChild(0)?.GetComponent<FruitSpecial>().ActiveSpecialEffect(2, b,a);
+                //b.transform.GetChild(0)?.GetComponent<FruitSpecial>().ActiveSpecialEffect(2, b,a);
+                for (int i = 0; i < b.transform.childCount; i++)
+                {
+                    Transform child = b.transform.GetChild(i);
+                    FruitSpecial special = child.GetComponent<FruitSpecial>();
+
+                    if (special != null)
+                    {
+                        special.ActiveSpecialEffect(2, b, a);
+                        break;
+                    }
+                }
                 yield return StartCoroutine(WaitToFallAndSpawn());
             }
             else if (aType == FruitType.Rubik && bType == FruitType.Rubik)
             {
-                b.transform.GetChild(0)?.GetComponent<FruitSpecial>().ActiveSpecialEffect(3, b, a);
+                //b.transform.GetChild(0)?.GetComponent<FruitSpecial>().ActiveSpecialEffect(3, b, a);
+                for (int i = 0; i < b.transform.childCount; i++)
+                {
+                    Transform child = b.transform.GetChild(i);
+                    FruitSpecial special = child.GetComponent<FruitSpecial>();
+
+                    if (special != null)
+                    {
+                        special.ActiveSpecialEffect(3, b, a);
+                        break;
+                    }
+                }
+
                 yield return StartCoroutine(WaitToFallAndSpawn());
             }
             else if ((aType == FruitType.Rubik && IsMissile(bType)) || (bType == FruitType.Rubik && IsMissile(aType)))
             {
-                yield return StartCoroutine(b.transform.GetChild(0)?.GetComponent<FruitSpecial>().RubikWithMissile(a,b));
+                
+                //yield return StartCoroutine(b.transform.GetChild(0)?.GetComponent<FruitSpecial>().RubikWithMissile(a,b));
+                foreach (Transform child in b.transform)
+                {
+                    FruitSpecial special = child.GetComponent<FruitSpecial>();
+                    if (special != null)
+                    {
+                        yield return StartCoroutine(special.RubikWithMissile(a, b));
+                        break;
+                    }
+                }
                 yield return StartCoroutine(WaitToFallAndSpawn());
             }
             else if ((aType == FruitType.Rubik && bType == FruitType.Bomb || (bType == FruitType.Rubik && aType == FruitType.Bomb)))
             {
 
-                yield return StartCoroutine(b.transform.GetChild(0)?.GetComponent<FruitSpecial>().RubikWithBomb(a,b));
+                //yield return StartCoroutine(b.transform.GetChild(0)?.GetComponent<FruitSpecial>().RubikWithBomb(a,b));
+                foreach (Transform child in b.transform)
+                {
+                    FruitSpecial special = child.GetComponent<FruitSpecial>();
+                    if (special != null)
+                    {
+                        yield return StartCoroutine(special.RubikWithBomb(a, b));
+                        break; 
+                    }
+                }
                 yield return StartCoroutine(WaitToFallAndSpawn());
             }
         }
         else if (!specialType.Contains(bType) && specialType.Contains(aType))
         {
-            //a.transform.GetChild(0)?.GetComponent<FruitSpecial>().ActiveEffect(a, b);
-            a.transform.GetChild(0)?.GetComponent<Fruit>().DestroyThis(0.02f,a, b);
+            //a.transform.GetChild(0)?.GetComponent<Fruit>().DestroyThis(0.02f,a, b);
+            for (int i = 0; i < a.transform.childCount; i++)
+            {
+                Transform child = a.transform.GetChild(i);
+                Fruit fruit = child.GetComponent<Fruit>();
+
+                if (fruit != null)
+                {
+                    fruit.DestroyThis(0.02f, a, b);
+                    break; 
+                }
+            }
             yield return StartCoroutine(WaitToFallAndSpawn());
 
         }
 
         else if (specialType.Contains(bType) && !specialType.Contains(aType))
         {
-            //b.transform.GetChild(0)?.GetComponent<FruitSpecial>().ActiveEffect(a, b);
-            b.transform.GetChild(0)?.GetComponent<Fruit>().DestroyThis(0.02f,a, b);
+            //b.transform.GetChild(0)?.GetComponent<Fruit>().DestroyThis(0.02f,a, b);
+            for (int i = 0; i < b.transform.childCount; i++)
+            {
+                Transform child = b.transform.GetChild(i);
+                Fruit fruit = child.GetComponent<Fruit>();
+
+                if (fruit != null)
+                {
+                    fruit.DestroyThis(0.02f, a, b);
+                    break; 
+                }
+            }
             yield return StartCoroutine(WaitToFallAndSpawn());
         }
 
