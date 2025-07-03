@@ -7,10 +7,11 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
-
+    [SerializeField] private GameObject lateGameEffectPrefab;
     public static LevelManager instance;
 
     public static Action reduceGoals;
+    public static Action reduceStep;
 
     [Header("Elements")]
     [SerializeField] Transform boardPos;
@@ -25,6 +26,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private List<FruitType> fruitTypes = new List<FruitType>();
     [SerializeField] private int requireCount;
     [SerializeField] private int score;
+    private bool ac=false;
     private void OnEnable()
     {
         FruitController.swap += ReduceStep;
@@ -52,8 +54,6 @@ public class LevelManager : MonoBehaviour
         requireCount = requires[StatsManager.Instance.GetLevelCurrent() - 1].items.Count;
 
         InitPameters(StatsManager.Instance.GetLevelCurrent());
-
-        
     }
 
     private void InitMap()
@@ -77,10 +77,11 @@ public class LevelManager : MonoBehaviour
         }*/
     }
 
-    private void ReduceStep()
+    public void ReduceStep()
     {
         step--;
-        if (step <= 0)
+        reduceStep?.Invoke();
+        if (step < 0)
             GameManager.instance.SetGameState(GameState.Lose);
     }
     private void UpdateGoal(FruitType type)
@@ -115,14 +116,33 @@ public class LevelManager : MonoBehaviour
             }
         }
         Debug.Log("count: "+ requireCount);
-        if (requireCount <= 0)
-            StartCoroutine(WaitToShowLoseUI());
+        if (requireCount <= 0 && !ac)
+           StartCoroutine(WaitToShowCompleteUI());
     }
 
-    IEnumerator WaitToShowLoseUI()
+    IEnumerator WaitToShowCompleteUI()
     {
-        yield return new WaitForSeconds(1f);
-        GameManager.instance.SetGameState(GameState.Lose);
+        ac =true;
+
+        /*while (FruitController.instance.isMatching)
+        {
+            yield return null;
+        }*/
+        //yield return StartCoroutine(FruitController.instance.WaitToFallAndSpawn());
+        //FruitController.instance.HandleMatches();
+
+        GameObject he = Instantiate(lateGameEffectPrefab, this.gameObject.transform.position, Quaternion.identity);
+        //he.transform.SetParent(GameObject.Find("HandleEffectPos").transform);
+
+        List<FruitCell> cells = he.GetComponent<LateGameEffect>().GetCellsRandomFromBoard(step);
+
+        yield return StartCoroutine(he.GetComponent<LateGameEffect>().Active(cells));
+
+
+        
+
+        yield return new WaitForSeconds(60f);
+        //GameManager.instance.SetGameState(GameState.Lose);
 
     }
     private void UpdateCore(FruitType type) => score += 5;

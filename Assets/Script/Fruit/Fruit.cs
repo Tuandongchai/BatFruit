@@ -127,11 +127,20 @@ public class Fruit : MonoBehaviour
     public bool isDestroyed = false;
     private void Start()
     {
+        if (transform.parent == null)
+        {
+            Destroy(gameObject);
+            return;
+        }
         pool = FindObjectOfType<ScoreObjectPooling>();
         SetParent(transform.parent);
     }
     public void SetParent(Transform parent)
     {
+        if (parent == null)
+        {
+            Destroy(gameObject);
+        }
         this.parent = parent.gameObject;
     }
     public void ChangeParent(GameObject parent)

@@ -8,6 +8,7 @@ using UnityEngine;
 public class FruitCell : MonoBehaviour
 {
     public enum FruitState {Has ,None};
+    [Header("Setup")]
     [SerializeField] Fruit[] fruitList;
     [SerializeField] private FruitState state;
     [SerializeField] private FruitType fruitType;
@@ -15,6 +16,11 @@ public class FruitCell : MonoBehaviour
 
     [SerializeField] private Fruit fruit;
     [SerializeField] private GameObject fruitObject;
+
+    /*[SerializeField] private enum ObstacleState {Has ,None};
+    [Header("Setup Obstacle")]*/
+
+
 
     public void Init(int x, int y)
     {

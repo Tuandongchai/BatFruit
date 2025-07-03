@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class InGameUI : MonoBehaviour
 {
+    public static InGameUI Instance;
 
     [Header("Elements")]
     [SerializeField] LevelSO[] requires = new LevelSO[] { };
@@ -23,7 +24,7 @@ public class InGameUI : MonoBehaviour
 
     private void OnEnable()
     {
-        FruitController.swap += UpdateStepUI;
+        LevelManager.reduceStep += UpdateStepUI;
         Fruit.broken += UpdateScoreUI;
         LevelManager.reduceGoals += UpdateGoalsUI;
 
@@ -32,7 +33,7 @@ public class InGameUI : MonoBehaviour
 
     private void OnDisable()
     {
-        FruitController.swap -= UpdateStepUI;
+        LevelManager.reduceStep -= UpdateStepUI;
         Fruit.broken -= UpdateScoreUI;
         LevelManager.reduceGoals -= UpdateGoalsUI;
 
@@ -66,7 +67,7 @@ public class InGameUI : MonoBehaviour
         }
 
     }
-    private void UpdateStepUI()=>stepText.text = LevelManager.instance.GetCurrentStep().ToString();
+    public void UpdateStepUI()=>stepText.text = LevelManager.instance.GetCurrentStep().ToString();
     private void UpdateGoalsUI()
     {
         Dictionary<FruitType, int> goals = new Dictionary<FruitType, int>();

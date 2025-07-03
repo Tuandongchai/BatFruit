@@ -13,7 +13,7 @@ public class BombEffect : HandleEffect
     protected override void Start()
     {
         board = FindObjectOfType<Board>();
-        Destroy(gameObject, 1.2f);
+        Destroy(gameObject, 1f);
     }
     public override IEnumerator Active(List<FruitCell> list, Transform trans = null)
     {
@@ -58,7 +58,7 @@ public class BombEffect : HandleEffect
         yield return new WaitForSeconds(0.5f);
         LeanTween.cancel(shakeTweenId);
         LeanTween.scale(go, Vector3.zero, 0.3f).setEase(LeanTweenType.easeOutBack);
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.4f);
         Instantiate(bomb_VFX, posStart, Quaternion.identity);
 
     }
