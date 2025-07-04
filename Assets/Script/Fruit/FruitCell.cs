@@ -18,12 +18,18 @@ public class FruitCell : MonoBehaviour
     [SerializeField] private GameObject fruitObject;
 
     public enum ObstacleState { None, Has };
-    [Header("Setup Obstacle")]
+    [Header("Setup Land")]
     [SerializeField] private ObstacleState oState;
     [SerializeField] Obstacle[] obstacleList;
     [SerializeField] ObstacleCellType obstacleType;
     [SerializeField] private GameObject obstacleObject =null;
 
+    public enum ChainObstacleState { None, Has };
+    [Header("Setup Land")]
+    [SerializeField] private ChainObstacleState chainState;
+    [SerializeField] Obstacle[] chainList;
+    [SerializeField] ObstacleCellType chainObsType;
+    [SerializeField] public GameObject chainObject = null;
 
     public void Init(int x, int y)
     {
@@ -84,9 +90,26 @@ public class FruitCell : MonoBehaviour
                 fruitIns.transform.localPosition = Vector3.zero;
                 foreach (Transform go in gameObject.transform)
                 {
-                    if (go.TryGetComponent(out Obstacle obs ))
+                    if (go.TryGetComponent(out LandObstacle obs ))
                     {
                         obstacleObject = go.gameObject; break;
+                    }
+
+                }
+            }
+        }
+        if (chainState == ChainObstacleState.Has)
+        {
+            Obstacle matchedChain = chainList.FirstOrDefault(f => f.type == chainObsType);
+            {
+                GameObject fruitIns = Instantiate(matchedChain.gameObject, Vector3.zero, Quaternion.identity);
+                fruitIns.transform.SetParent(transform);
+                fruitIns.transform.localPosition = Vector3.zero;
+                foreach (Transform go in gameObject.transform)
+                {
+                    if (go.TryGetComponent(out ChainObstacle obs))
+                    {
+                        chainObject = go.gameObject; break;
                     }
 
                 }
@@ -99,9 +122,13 @@ public class FruitCell : MonoBehaviour
     {
         return fruitObject;
     }
-    public GameObject GetObstacle()
+    public GameObject GetLandObstacle()
     {
         return obstacleObject;
+    }
+    public GameObject GetChainObstacle()
+    {
+        return chainObject;
     }
     public FruitType GetFruitType()
     {

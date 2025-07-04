@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ObstacleCellType { LandType0, LandType1, LandType2, LandType3 , none };
+public enum ObstacleCellType {chain ,LandType0, LandType1, LandType2, LandType3 , none };
 public abstract class Obstacle : MonoBehaviour
 {
     public ObstacleCellType type;

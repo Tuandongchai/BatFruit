@@ -14,7 +14,7 @@ public class BombWithBombEffect : HandleEffect
         board = FindObjectOfType<Board>();
         Destroy(gameObject, 0.9f);
     }
-    public override IEnumerator Active(List<FruitCell> list, Transform trans = null)
+    public override IEnumerator Active(List<FruitCell> list, Transform trans = null, FruitCell fc = null)
     {
         List<FruitCell> cellList = list;
         if (RubikParticle != null)

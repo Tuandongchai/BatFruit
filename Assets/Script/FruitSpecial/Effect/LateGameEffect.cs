@@ -18,7 +18,7 @@ public class LateGameEffect : HandleEffect
         uiObject = FindObjectOfType<FlyToWorldTargetUI>().GetComponent<RectTransform>();
         Destroy(gameObject, 60f);
     }
-    public override IEnumerator Active(List<FruitCell> list, Transform trans = null)
+    public override IEnumerator Active(List<FruitCell> list, Transform trans = null, FruitCell fc = null)
     {
         StartCoroutine(FruitController.instance.WaitToFallAndSpawn());
         List<FruitCell> cellList = list;

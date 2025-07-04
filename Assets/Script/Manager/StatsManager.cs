@@ -22,7 +22,7 @@ public class StatsManager : MonoBehaviour
         if (!PlayerPrefs.HasKey("LevelCurrent"))
             PlayerPrefs.SetInt("LevelCurrent", 1);
         //
-        SetLevelCurrent(2);
+        SetLevelCurrent(1);
         //
         levelCurrent = PlayerPrefs.GetInt("LevelCurrent", levelCurrent);
 

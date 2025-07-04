@@ -291,7 +291,7 @@ public class FruitController : MonoBehaviour
     {
 
         List<List<FruitCell>> matchGroups = MatchChecker.FindMatches(fruitBoard.fruitCells);
-        if (matchGroups.Count > 0)
+        if (matchGroups.Count > 0 ||handleEffectTrans.transform.childCount>0)
         {
             swap?.Invoke();
             yield break;
@@ -346,9 +346,16 @@ public class FruitController : MonoBehaviour
 
                 foreach (var cell in group)
                 {
-                    /*Destroy(cell.GetFruit());*/
-                    cell?.GetFruit()?.GetComponent<Fruit>().DestroyThis();
-                    cell.ChangeFruit(null);
+                    /*cell?.GetFruit()?.GetComponent<Fruit>().DestroyThis();
+                    cell.ChangeFruit(null);*/
+                    GameObject fruit = cell?.GetFruit();
+                    if (fruit != null)
+                    {
+                        Debug.Log(".....");
+                        cell.ChangeFruit(null);
+                        fruit.GetComponent<Fruit>().DestroyThis();
+                    }
+
                 }
                 SpawnFruitSpecial(group, group[UnityEngine.Random.Range(0, group.Count)]);
 

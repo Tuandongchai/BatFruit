@@ -67,8 +67,13 @@ public class LevelManager : MonoBehaviour
         requireCount = requires[StatsManager.Instance.GetLevelCurrent() - 1].items.Count + requires[StatsManager.Instance.GetLevelCurrent() - 1].obstacles.Count;
 
         InitPameters(StatsManager.Instance.GetLevelCurrent());
+        Invoke("HandelMatch", 0.1f);
     }
+    private void HandelMatch()
+    {
+        FruitController.instance.HandleMatches();
 
+    }
     private void InitMap()
     {
         int currentLevel = StatsManager.Instance.GetLevelCurrent();
@@ -98,7 +103,7 @@ public class LevelManager : MonoBehaviour
     {
         step--;
         reduceStep?.Invoke();
-        if (step < 0)
+        if (step <= 0)
             GameManager.instance.SetGameState(GameState.Lose);
     }
     private void UpdateGoal(FruitType type)
@@ -184,7 +189,7 @@ public class LevelManager : MonoBehaviour
         GameObject he = Instantiate(lateGameEffectPrefab, this.gameObject.transform.position, Quaternion.identity);
         //he.transform.SetParent(GameObject.Find("HandleEffectPos").transform);
 
-        List<FruitCell> cells = he.GetComponent<LateGameEffect>().GetCellsRandomFromBoard(step);
+        List<FruitCell> cells = he.GetComponent<LateGameEffect>().GetCellsRandomFromBoard(step-2);
 
         yield return StartCoroutine(he.GetComponent<LateGameEffect>().Active(cells));
 

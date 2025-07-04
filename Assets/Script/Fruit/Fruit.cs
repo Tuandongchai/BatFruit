@@ -44,6 +44,7 @@ public class Fruit : MonoBehaviour
 
     public void DestroyThis(float i=0.05f, FruitCell a =null, FruitCell b=null)
     {
+        if(CkeckChainObstacle()) return;
         if (this.isDestroyed) return;
         this.isDestroyed = true;
         if (gameObject == null)
@@ -72,13 +73,27 @@ public class Fruit : MonoBehaviour
     private void CkeckLandObstacle()
     {
         FruitCell cell = gameObject.transform.parent.GetComponent<FruitCell>();
-        GameObject obstacle = cell?.GetObstacle();
+        GameObject obstacle = cell?.GetLandObstacle();
 
         if (obstacle != null)
         {
-            Obstacle obs = obstacle.GetComponent<Obstacle>();
+            Obstacle obs = obstacle.GetComponent<LandObstacle>();
             obs?.DestroyThis();
         }
+    }
+    private bool CkeckChainObstacle()
+    {
+        FruitCell cell = gameObject.transform.parent.GetComponent<FruitCell>();
+        GameObject obstacle = cell?.GetChainObstacle();
+
+        if (obstacle != null)
+        {
+            cell.ChangeFruit(gameObject);
+            Obstacle obs = obstacle.GetComponent<ChainObstacle>();
+            obs?.DestroyThis();
+            return true;
+        }
+        return false;
     }
 
     private void SpawnScoreText()
@@ -100,6 +115,7 @@ public class Fruit : MonoBehaviour
     }
     public void Destroyit(float i)
     {
+        CkeckLandObstacle();
         Destroy(gameObject, i);
 
     }

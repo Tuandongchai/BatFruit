@@ -14444,5 +14444,7 @@ MonoBehaviour:
   RubikWithBombEffectPrefab: {fileID: 0}
   RubikWithRubikPrefab: {fileID: 0}
   BombWithBomPrefab: {fileID: 0}
+  MissileWithBombPrefab: {fileID: 6150754296249885586, guid: 9737482dcf96f4a4f9ab7238a8535838, type: 3}
+  MissileWithMissilePrefab: {fileID: 2680401820491651126, guid: d01de42746e75c24b8bfd2302c99141f, type: 3}
   MissileHorEffectPrefab: {fileID: 2316480121524747846, guid: 108e4eb423989b8408f57501ba0cd929, type: 3}
   MissileVerEffectPrefab: {fileID: 6114708820649740492, guid: 487be76499dc6974ca8a2900821fc9f7, type: 3}

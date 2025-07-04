@@ -202,4 +202,5 @@ MonoBehaviour:
   RubikWithBombEffectPrefab: {fileID: 7933593838018947663, guid: f06935f651fbbbb4982455bd5bb4114c, type: 3}
   RubikWithRubikPrefab: {fileID: 0}
   BombWithBomPrefab: {fileID: 5472448194045917271, guid: cdfca59f683227f469a1f616525ca56a, type: 3}
+  MissileWithBombPrefab: {fileID: 6150754296249885586, guid: 9737482dcf96f4a4f9ab7238a8535838, type: 3}
   bombEffectPrefab: {fileID: 7203215315515703244, guid: 675c612f435941d4780b69b8b2025991, type: 3}

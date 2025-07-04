@@ -64,6 +64,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &8336966833707124875
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -162,7 +166,7 @@ MonoBehaviour:
   - {fileID: 3508254559444113967, guid: 330f74c76088d854da6f3464208c2131, type: 3}
   - {fileID: 6814579115494721835, guid: ca8b7c4f0a55c894393ee3c9ccab74c7, type: 3}
   state: 0
-  fruitType: 7
+  fruitType: 10
   x: 2
   y: -2
   fruit: {fileID: 0}
@@ -175,6 +179,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 3
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &2856857127509596020
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -284,6 +292,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &5016001931643979830
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -393,6 +405,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 3
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &662594308200693423
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -502,6 +518,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &3559492892917867112
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -611,6 +631,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &7190492885344548139
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -720,6 +744,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &5951503866622900543
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -829,6 +857,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &3359095300299198056
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -938,6 +970,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &2017582423145042851
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1047,6 +1083,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &3285190097441776434
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1156,6 +1196,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &3794842729375083045
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1265,6 +1309,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &5772276218954761629
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1374,6 +1422,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &3093453007822026767
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1483,6 +1535,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 3
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &3912922689439049740
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1592,6 +1648,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &805590522751508505
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1701,6 +1761,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &1868340297062317513
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1810,6 +1874,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 3
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &4473474202536076311
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1919,6 +1987,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &1423199903868014705
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2028,6 +2100,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &6972521386856623004
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2137,6 +2213,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &3932417511067607771
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2246,6 +2326,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &2595612383375947874
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2355,6 +2439,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &7143569701119808397
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2464,6 +2552,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &2201844097315571327
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2573,6 +2665,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 3
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &6397321018098670356
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2682,6 +2778,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 3
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &7881844824337398948
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2791,6 +2891,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 3
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &5918203880460552669
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2900,6 +3004,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &2359187453133499313
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3009,6 +3117,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &8491600689982206841
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3104,8 +3216,9 @@ MonoBehaviour:
   - {fileID: 4104982703275124467, guid: 1f9bc2baa3eecbe48aaac571067bd966, type: 3}
   - {fileID: 2991070137121810056, guid: e604a0a06f0ad2f4588b7a1127b77381, type: 3}
   - {fileID: 2418030742714711225, guid: fe78d4afa3f68664fa71adf376f4aea6, type: 3}
-  state: 1
-  fruitType: 0
+  - {fileID: 8057490148716883388, guid: b2355464cfabdce438eaecc63368993a, type: 3}
+  state: 0
+  fruitType: 8
   x: 3
   y: -4
   fruit: {fileID: 0}
@@ -3118,6 +3231,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &5455989094728026062
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3227,6 +3344,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &6935199615075683317
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3336,6 +3457,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &5802426298450327935
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3445,6 +3570,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &6842121362147884980
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3554,6 +3683,11 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 1
+  chainList:
+  - {fileID: 7291945994659300945, guid: 14060c5a09d604344acf04ee021e9a75, type: 3}
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &3596485164329065093
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3663,6 +3797,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &4005116439666650595
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3772,6 +3910,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &4681260013159192605
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3881,6 +4023,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &2441258600339847587
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3990,6 +4136,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &5127960513724196481
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4099,6 +4249,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &761426809825827038
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4208,6 +4362,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &34184549302262138
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4317,6 +4475,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &1497180444339987475
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4426,6 +4588,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &8997902064306392543
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4535,6 +4701,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &5865598557346245128
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4806,6 +4976,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &798121199773381122
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4915,6 +5089,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &4101005082938663524
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5024,6 +5202,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &7446155864023404658
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5133,6 +5315,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &8592468637456580066
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5242,6 +5428,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &6859726172035727969
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5339,6 +5529,8 @@ MonoBehaviour:
   - {fileID: 2418030742714711225, guid: fe78d4afa3f68664fa71adf376f4aea6, type: 3}
   - {fileID: 3508254559444113967, guid: 330f74c76088d854da6f3464208c2131, type: 3}
   - {fileID: 6814579115494721835, guid: ca8b7c4f0a55c894393ee3c9ccab74c7, type: 3}
+  - {fileID: 7811097892464576336, guid: 753b70be66adf444cbab83339d8dbd0d, type: 3}
+  - {fileID: 8057490148716883388, guid: b2355464cfabdce438eaecc63368993a, type: 3}
   state: 0
   fruitType: 10
   x: 1
@@ -5353,6 +5545,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 3
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &3525958434717826996
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5448,8 +5644,9 @@ MonoBehaviour:
   - {fileID: 4104982703275124467, guid: 1f9bc2baa3eecbe48aaac571067bd966, type: 3}
   - {fileID: 2991070137121810056, guid: e604a0a06f0ad2f4588b7a1127b77381, type: 3}
   - {fileID: 2418030742714711225, guid: fe78d4afa3f68664fa71adf376f4aea6, type: 3}
-  state: 1
-  fruitType: 0
+  - {fileID: 6814579115494721835, guid: ca8b7c4f0a55c894393ee3c9ccab74c7, type: 3}
+  state: 0
+  fruitType: 7
   x: 3
   y: -3
   fruit: {fileID: 0}
@@ -5462,6 +5659,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &3297400732088427192
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5571,6 +5772,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &6673182661728786857
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5680,6 +5885,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 3
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &5092726074339266239
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5789,6 +5998,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &2132492038199997288
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5898,6 +6111,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &3220664229835571574
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6007,6 +6224,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &932567001335879049
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6116,6 +6337,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &4898031548268293112
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6225,6 +6450,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &8409548590482652315
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6334,6 +6563,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 3
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &8593239545160541267
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6443,6 +6676,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &1390950205605812930
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6552,6 +6789,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &2253954137846946826
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6661,6 +6902,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &8094301708205220878
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6770,6 +7015,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &7287993425539748822
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6879,6 +7128,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &7454720104484219624
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6988,6 +7241,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &2994513391512827025
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7097,6 +7354,10 @@ MonoBehaviour:
   - {fileID: 8912917033996057274, guid: 0a45a785857c9704c8536648cacfae86, type: 3}
   obstacleType: 4
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &2327599811611800937
 BoxCollider2D:
   m_ObjectHideFlags: 0
