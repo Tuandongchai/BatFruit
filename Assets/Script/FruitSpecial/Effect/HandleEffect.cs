@@ -9,7 +9,7 @@ public class HandleEffect : MonoBehaviour
     [SerializeField] protected GameObject RubikParticle;
     [SerializeField] protected GameObject RubikWithRubikParticle;
     [SerializeField] protected List<FruitCell> cellList=new List<FruitCell>();
-
+    [SerializeField] protected AudioSO audioSO;
     protected virtual void Start()
     {
         board = FindObjectOfType<Board>();

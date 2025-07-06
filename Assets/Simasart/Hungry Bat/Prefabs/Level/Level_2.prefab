@@ -4901,6 +4901,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 735bdc0692eba0c418b61f9cbd3948c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSO: {fileID: 11400000, guid: 23e24e85c4c9ff049aaf2aaf3ec4260b, type: 2}
   board: {fileID: 3253691618251462149}
   fruits:
   - {fileID: 4104982703275124467, guid: 1f9bc2baa3eecbe48aaac571067bd966, type: 3}

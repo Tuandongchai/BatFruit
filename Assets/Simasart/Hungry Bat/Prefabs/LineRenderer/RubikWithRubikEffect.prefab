@@ -49,3 +49,4 @@ MonoBehaviour:
   RubikParticle: {fileID: 0}
   RubikWithRubikParticle: {fileID: 7858118596878936277, guid: 00d3605992743604bb0d331bd1a6c178, type: 3}
   cellList: []
+  audioSO: {fileID: 11400000, guid: 23e24e85c4c9ff049aaf2aaf3ec4260b, type: 2}

@@ -95,6 +95,7 @@ public class MissileWithBombEffect : HandleEffect
                  .setEase(LeanTweenType.easeInOutQuad);
         LeanTween.move(go1, right.position + new Vector3(4, 0, 0), 0.2f)
                  .setEase(LeanTweenType.easeInOutQuad);
+        AudioManager.Instance.Play2D(audioSO.Rocket, 1);
         yield return new WaitForSeconds(0.2f);
     }
 }

@@ -84,6 +84,7 @@ public class LateGameEffect : HandleEffect
                 StartCoroutine(FruitController.instance.WaitToFallAndSpawn());
             }
             GameObject bomb = Instantiate(bombFruit);
+            AudioManager.Instance.Play2D(audioSO.SpawSFruit, Random.Range(1.2f, 1.6f));
             cell.ChangeFruit(bomb);
             bomb.GetComponent<Fruit>().ChangeParent(cell.gameObject);
             yield return null;

@@ -53,6 +53,7 @@ public class MissileVerEffect : HandleEffect
         yield return new WaitForSeconds(0.5f);
         LeanTween.move(go, targetPos2.position + new Vector3(0, 4, 0), 0.2f)
                  .setEase(LeanTweenType.easeInOutQuad);
+        AudioManager.Instance.Play2D(audioSO.Rocket, Random.Range(0.8f, 1.2f));
         yield return new WaitForSeconds(0.2f);
 
     }

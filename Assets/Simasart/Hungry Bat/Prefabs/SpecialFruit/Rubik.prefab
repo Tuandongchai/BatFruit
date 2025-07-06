@@ -9898,8 +9898,12 @@ MonoBehaviour:
   RubikWithMissileEffectPrefab: {fileID: 2955254946764733781, guid: ec34ce225a8edd54f9fa91c12be653c9, type: 3}
   RubikWithBombEffectPrefab: {fileID: 7933593838018947663, guid: f06935f651fbbbb4982455bd5bb4114c, type: 3}
   RubikWithRubikPrefab: {fileID: 4081219276547689642, guid: 83f46e08499a1c24d96529faf71f02c6, type: 3}
+  BombWithBomPrefab: {fileID: 0}
+  MissileWithBombPrefab: {fileID: 0}
+  MissileWithMissilePrefab: {fileID: 0}
   handleEffectTrans: {fileID: 0}
   handleEffectPrefab: {fileID: 849531529123454396, guid: 1abea8eea9f4d51499c03b2900527f6d, type: 3}
+  audioSO: {fileID: 11400000, guid: 23e24e85c4c9ff049aaf2aaf3ec4260b, type: 2}
 --- !u!1 &6801478793272724693
 GameObject:
   m_ObjectHideFlags: 0

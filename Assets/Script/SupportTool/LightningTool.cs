@@ -5,6 +5,7 @@ using UnityEngine;
 public class LightningTool : ToolBase
 {
     [SerializeField] private GameObject lightning_VFX;
+    [SerializeField] private AudioSO audioSO;
     protected override void Start()
     {
         base.Start();
@@ -26,6 +27,7 @@ public class LightningTool : ToolBase
         if (cells.Count == 0)
             yield break;
         SpawnVFX();
+        AudioManager.Instance.Play2D(audioSO.Explosion);
         foreach (FruitCell cell in cells)
         {
             GameObject fruit = cell?.GetFruit();

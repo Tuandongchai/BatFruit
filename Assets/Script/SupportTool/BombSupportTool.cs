@@ -6,6 +6,7 @@ using static UnityEditor.PlayerSettings;
 public class BombSupportTool : ToolBase
 {
     [SerializeField] private GameObject bomb_VFX;
+    [SerializeField] private AudioSO audioSO;
     protected override void Start()
     {
         base.Start(); 
@@ -28,6 +29,7 @@ public class BombSupportTool : ToolBase
             yield break;
         SpawnVFX();
 
+        AudioManager.Instance.Play2D(audioSO.Explosion);
         yield return new WaitForSeconds(0.5f);
         foreach (FruitCell cell in cells)
         {

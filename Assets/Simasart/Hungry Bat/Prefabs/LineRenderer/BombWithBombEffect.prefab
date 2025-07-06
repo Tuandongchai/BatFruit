@@ -49,6 +49,7 @@ MonoBehaviour:
   RubikParticle: {fileID: 0}
   RubikWithRubikParticle: {fileID: 0}
   cellList: []
+  audioSO: {fileID: 11400000, guid: 23e24e85c4c9ff049aaf2aaf3ec4260b, type: 2}
   bombWithBomb_VFX: {fileID: 4042207707875660937, guid: 7ba49737993924f4abcc8f82ba3a3272, type: 3}
   transStart: {fileID: 0}
   posStart: {x: 0, y: 0, z: 0}

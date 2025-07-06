@@ -177,12 +177,15 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public static Spawner Instance;
-
+    [SerializeField] private AudioSO audioSO;
     [SerializeField] private Board board;
     [SerializeField] private List<Fruit> fruits = new List<Fruit>();
     [SerializeField] private List<FruitSpecial> fruitsSpecial = new List<FruitSpecial>();
 
     private Dictionary<Vector2Int, FruitCell> cellMap = new Dictionary<Vector2Int, FruitCell>();
+
+    
+
 
     private int completedColumnCount = 0;
     private int totalColumns = 0;
@@ -327,6 +330,9 @@ public class Spawner : MonoBehaviour
         fruitSpawn.transform.SetParent(cell.gameObject.transform);
         fruitSpawn.transform.localPosition = Vector3.zero;
         cell.ChangeFruit(fruitSpawn);
+
+        AudioManager.Instance.Play2D(audioSO.SpawSFruit, 1.5f);
+
     }
 }
 

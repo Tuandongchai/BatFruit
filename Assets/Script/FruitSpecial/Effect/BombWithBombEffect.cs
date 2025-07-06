@@ -49,6 +49,7 @@ public class BombWithBombEffect : HandleEffect
     private IEnumerator SpawnVFX()
     {
         go = Instantiate(bombWithBomb_VFX, posStart, Quaternion.identity);
+        AudioManager.Instance.Play2D(audioSO.Explosion, Random.Range(0.2f, 0.5f));
         yield return new WaitForSeconds(0.3f);
 
     }

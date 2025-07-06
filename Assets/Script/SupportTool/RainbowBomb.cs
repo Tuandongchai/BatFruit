@@ -6,6 +6,7 @@ public class RainbowBomb : ToolBase
 {
     [SerializeField] private GameObject root_VFX;
     [SerializeField] private GameObject lineRenPrefab;
+    [SerializeField] private AudioSO audioSO;
     protected override void Start()
     {
         base.Start();
@@ -34,6 +35,7 @@ public class RainbowBomb : ToolBase
             {
                 cell.ChangeFruit(null);
                 StartCoroutine(SpawnLine(cellChoose.transform, cell.transform, fruit, root));
+                
                 yield return new WaitForSeconds(0.3f);
                 
             }
@@ -76,6 +78,7 @@ public class RainbowBomb : ToolBase
                      .setEase(LeanTweenType.easeInOutSine)
                      .setLoopPingPong().uniqueId;
         yield return new WaitForSeconds(0.4f);
+        AudioManager.Instance.Play2D(audioSO.Rainbow);
         LeanTween.cancel(shakeTweenId);
         fruit.transform.rotation = Quaternion.identity;
         LeanTween.move(fruit.gameObject, cellChoose.transform.position, 0.4f).setEase(LeanTweenType.easeInOutQuad);

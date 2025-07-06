@@ -41,7 +41,11 @@ public class InGameUIManager : MonoBehaviour, IGameStateListener
     private void Show(GameObject panel)
     {
         for (int i = 0; i < panels.Length; i++)
+        {
             panels[i].SetActive(panels[i] == panel);
+            
+
+        }
     }
 
     public void GameStateChangedCallback(GameState gameState)

@@ -60,6 +60,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &6284884171750652789
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -165,6 +169,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &917978063883620029
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -270,6 +278,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &3755418534657568696
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -375,6 +387,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &7567743657087390341
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -480,6 +496,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &457815842759419205
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -585,6 +605,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &3831087662268849701
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -690,6 +714,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &5314661771474545068
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -795,6 +823,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &6915230694445535852
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -900,6 +932,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &4302268083546790865
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1005,6 +1041,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &134680671354410255
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1201,6 +1241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 735bdc0692eba0c418b61f9cbd3948c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSO: {fileID: 11400000, guid: 23e24e85c4c9ff049aaf2aaf3ec4260b, type: 2}
   board: {fileID: 6043766859490599136}
   fruits:
   - {fileID: 4104982703275124467, guid: 1f9bc2baa3eecbe48aaac571067bd966, type: 3}
@@ -1272,6 +1313,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &2424118275801526595
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1377,6 +1422,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &3126443014317262048
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1482,6 +1531,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &7266948161525280327
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1587,6 +1640,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &4078377017664242043
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1692,6 +1749,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &3708888677082223019
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1797,6 +1858,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &3822681051492998376
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1902,6 +1967,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &6957402520140597276
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2007,6 +2076,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &6816409168092721603
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2112,6 +2185,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &4048646551287538120
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2217,6 +2294,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &6838682791154181233
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2322,6 +2403,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &1298951673297943327
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2427,6 +2512,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &3307061043535715401
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2532,6 +2621,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &3199772084151657612
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2637,6 +2730,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &6348413532077924653
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2742,6 +2839,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &6256876010111718143
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2847,6 +2948,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &3575015957668111561
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2952,6 +3057,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &3609975147779504661
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3057,6 +3166,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &893248717786753283
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3162,6 +3275,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &6866279865183644478
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3269,6 +3386,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &5735761018456435348
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3374,6 +3495,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &9181796978315616577
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3479,6 +3604,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &5162213043523024605
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3579,7 +3708,7 @@ MonoBehaviour:
   - {fileID: 3508254559444113967, guid: 330f74c76088d854da6f3464208c2131, type: 3}
   - {fileID: 8057490148716883388, guid: b2355464cfabdce438eaecc63368993a, type: 3}
   state: 0
-  fruitType: 9
+  fruitType: 7
   x: -1
   y: -3
   fruit: {fileID: 0}
@@ -3588,6 +3717,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &5984778750992948945
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3693,6 +3826,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &7290029866454099985
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3798,6 +3935,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &5964582773540995094
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3907,6 +4048,10 @@ MonoBehaviour:
   - {fileID: 7897735940712053699, guid: 80729638b8fef50459db56e4af01299d, type: 3}
   obstacleType: 3
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &2794180186907045116
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4012,6 +4157,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &4700345349226442994
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4117,6 +4266,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &3048863453280074936
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4222,6 +4375,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &1060145036937616128
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4327,6 +4484,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &3371640888347708414
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4432,6 +4593,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &7334553389776172135
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4537,6 +4702,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &262164926718738980
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4642,6 +4811,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &2004652327692900450
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4747,6 +4920,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &8732102293511213420
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4852,6 +5029,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &3891431326385895781
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4957,6 +5138,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &2325829339126261499
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5062,6 +5247,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &7879606441388691619
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5167,6 +5356,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &7562628641850951137
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5272,6 +5465,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &6899342193261434280
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5377,6 +5574,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &1805624094210443227
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5482,6 +5683,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &437726517057197500
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5587,6 +5792,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &3409075416408543070
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5692,6 +5901,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &4427860137559775962
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5797,6 +6010,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &4033573453740340483
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5902,6 +6119,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &3433781901050488500
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6007,6 +6228,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &8453470724573081124
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6112,6 +6337,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &5325629077689356876
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6217,6 +6446,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &7280428260049884529
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6323,6 +6556,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &8909102875922886275
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6428,6 +6665,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &8503433035847317323
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6533,6 +6774,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &1160106897115639487
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6638,6 +6883,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &2364905410186728544
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6743,6 +6992,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &8399248774879207779
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6843,7 +7096,7 @@ MonoBehaviour:
   - {fileID: 7811097892464576336, guid: 753b70be66adf444cbab83339d8dbd0d, type: 3}
   - {fileID: 3508254559444113967, guid: 330f74c76088d854da6f3464208c2131, type: 3}
   state: 0
-  fruitType: 9
+  fruitType: 10
   x: 0
   y: -3
   fruit: {fileID: 0}
@@ -6852,6 +7105,10 @@ MonoBehaviour:
   obstacleList: []
   obstacleType: 0
   obstacleObject: {fileID: 0}
+  chainState: 0
+  chainList: []
+  chainObsType: 0
+  chainObject: {fileID: 0}
 --- !u!61 &4359307192452010763
 BoxCollider2D:
   m_ObjectHideFlags: 0

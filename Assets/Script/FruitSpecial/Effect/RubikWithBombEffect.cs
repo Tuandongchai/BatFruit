@@ -9,6 +9,12 @@ public class RubikWithBombEffect : HandleEffect
         board = FindObjectOfType<Board>();
         Destroy(gameObject, 1.6f);
     }
+    public override IEnumerator Active(List<FruitCell> list, Transform trans = null, FruitCell fc = null)
+    {
+        StartCoroutine(base.Active(list, trans, fc));
+        AudioManager.Instance.Play2D(audioSO.RubikEffect);
+        yield return null;
+    }
     protected override IEnumerator EffectSequence(FruitCell cell, System.Action onComplete)
     {
         yield return StartCoroutine(SpawnLine(this.transform, cell.transform));

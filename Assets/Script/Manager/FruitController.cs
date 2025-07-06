@@ -1,3 +1,4 @@
+using NaughtyAttributes.Test;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ public class FruitController : MonoBehaviour
     [SerializeField] private Board fruitBoard;
     [SerializeField] private Spawner spawner;
     [SerializeField] private GameObject handleEffectTrans;
+    [SerializeField] private List<FruitType> sflist = new List<FruitType> { FruitType.Missile_Hor, FruitType.Missile_Ver, FruitType.Bomb, FruitType.Rubik};
 
 
     private FruitCell firstSelectedCell;
@@ -25,6 +27,9 @@ public class FruitController : MonoBehaviour
 
     public bool isMatching = false;
     private bool pause = false;
+
+    [Header("Audio")]
+    [SerializeField] private AudioSO audioSO;
 
     public static Action swap;
 
@@ -135,11 +140,13 @@ public class FruitController : MonoBehaviour
         a.ChangeFruit(tempB);
         b.ChangeFruit(tempA);
 
+        AudioManager.Instance.Play2D(audioSO.Swap,1);
         Debug.Log($"Swapped: {a.GetXY()} <-> {b.GetXY()}");
 
         yield return StartCoroutine(HandleFruitSpecial(a, b));
 
         HandleMatches();
+        
         StartCoroutine(BackFruit(a, b, tempA, tempB));
     }
     bool IsMissile(FruitType type) => (type == FruitType.Missile_Ver || type == FruitType.Missile_Hor);
@@ -291,14 +298,19 @@ public class FruitController : MonoBehaviour
     {
 
         List<List<FruitCell>> matchGroups = MatchChecker.FindMatches(fruitBoard.fruitCells);
-        if (matchGroups.Count > 0 ||handleEffectTrans.transform.childCount>0)
+        if (matchGroups.Count > 0)
         {
             swap?.Invoke();
             yield break;
 
         }
+        if (tempA.Equals(null) || tempB.Equals(null))
+        {
+            yield break;
+        }
 
         yield return new WaitForSeconds(0.3f);
+        AudioManager.Instance.Play2D(audioSO.Swap, 1);
         b.ChangeFruit(tempB);
         a.ChangeFruit(tempA);
     }
@@ -354,6 +366,7 @@ public class FruitController : MonoBehaviour
                         Debug.Log(".....");
                         cell.ChangeFruit(null);
                         fruit.GetComponent<Fruit>().DestroyThis();
+                        AudioManager.Instance.Play2D(audioSO.Match, 0.2f);
                     }
 
                 }
@@ -375,15 +388,18 @@ public class FruitController : MonoBehaviour
         {
             int index = (int)UnityEngine.Random.Range(0, 2);
             Spawner.Instance.SpawnSpecialFruit(index, cell);
+            //AudioManager.Instance.Play2D(audioSO.SpawSFruit, 1);
         }
         else if (group.Count == 5)
         {
             Spawner.Instance.SpawnSpecialFruit(3, cell);
+            //AudioManager.Instance.Play2D(audioSO.SpawSFruit, 1);
 
         }
         else if (group.Count >= 6)
         {
             Spawner.Instance.SpawnSpecialFruit(2, cell);
+            
         }
         else
             return;

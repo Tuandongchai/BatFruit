@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class RubikWithRubikEffect : HandleEffect
 {
+    
     protected override void Start()
     {
         board = FindObjectOfType<Board>();
         SpawnRubikWithRubikParticle();
+        Invoke("PlaySound", 1f);
         Destroy(gameObject, 1.6f);
     }
     protected override IEnumerator EffectSequence(FruitCell cell, System.Action onComplete)
     {
 
         yield return StartCoroutine(WaitToDestroy(cell));
-
         onComplete?.Invoke();
     }
     
@@ -27,4 +28,8 @@ public class RubikWithRubikEffect : HandleEffect
         rp.transform.SetParent(this.transform);
     }
 
+    protected virtual void PlaySound()
+    {
+        AudioManager.Instance.Play2D(audioSO.Fireball, 1.4f);
+    }
 }

@@ -47,4 +47,6 @@ MonoBehaviour:
   board: {fileID: 0}
   lineRenPrefab: {fileID: 675556135793322093, guid: 3602e24b9ffcd6d4f9008fb56688a132, type: 3}
   RubikParticle: {fileID: 5701745968933166478, guid: b210a54014a97b246a32f3bf7a3021fe, type: 3}
+  RubikWithRubikParticle: {fileID: 0}
   cellList: []
+  audioSO: {fileID: 11400000, guid: 23e24e85c4c9ff049aaf2aaf3ec4260b, type: 2}
